@@ -1,0 +1,95 @@
+2020-03-06 18:09:40 DEBUG MainController:37 - doCommand: input=help
+2020-03-06 18:10:00 DEBUG MainController:37 - doCommand: input=exit
+2020-03-06 20:46:16 DEBUG MainController:37 - doCommand: input=help
+2020-03-06 21:08:57 DEBUG MainController:37 - doCommand: input=help
+2020-03-06 21:09:21 DEBUG MainController:37 - doCommand: input=exit
+2020-03-10 20:40:44 DEBUG MainController:39 - doCommand: input=help
+2020-03-10 20:40:53 DEBUG MainController:39 - doCommand: input=find_course_by_title
+2020-03-10 20:41:27 DEBUG CourseDAOImpl:69 - get: course.title=JAVA PRO
+2020-03-10 20:41:27 ERROR CourseDAOImpl:81 - get: course.title=JAVA PRO
+org.postgresql.util.PSQLException: ResultSet not positioned properly, perhaps you need to call next.
+	at org.postgresql.jdbc.PgResultSet.checkResultSet(PgResultSet.java:2772) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:1894) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.HikariProxyResultSet.getString(HikariProxyResultSet.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.course.CourseDAOImpl.get(CourseDAOImpl.java:77) [main/:?]
+	at com.courses.management.course.FindCourseByTitle.process(FindCourseByTitle.java:27) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:42) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:34) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-10 20:43:02 DEBUG MainController:39 - doCommand: input=find_course_by_title
+2020-03-10 20:43:07 DEBUG CourseDAOImpl:69 - get: course.title=JAVA PRO
+2020-03-10 20:43:07 ERROR CourseDAOImpl:81 - get: course.title=JAVA PRO
+org.postgresql.util.PSQLException: ResultSet not positioned properly, perhaps you need to call next.
+	at org.postgresql.jdbc.PgResultSet.checkResultSet(PgResultSet.java:2772) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:1894) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.HikariProxyResultSet.getString(HikariProxyResultSet.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.course.CourseDAOImpl.get(CourseDAOImpl.java:77) [main/:?]
+	at com.courses.management.course.FindCourseByTitle.process(FindCourseByTitle.java:27) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:42) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:34) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-10 20:43:55 DEBUG MainController:39 - doCommand: input=create_course
+2020-03-10 20:43:59 DEBUG CourseDAOImpl:26 - create: course.title=JS
+2020-03-10 20:44:10 DEBUG MainController:39 - doCommand: input=find_course_by_title
+2020-03-10 20:44:12 DEBUG CourseDAOImpl:69 - get: course.title=JS
+2020-03-10 20:44:12 ERROR CourseDAOImpl:81 - get: course.title=JS
+org.postgresql.util.PSQLException: ResultSet not positioned properly, perhaps you need to call next.
+	at org.postgresql.jdbc.PgResultSet.checkResultSet(PgResultSet.java:2772) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:1894) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.HikariProxyResultSet.getString(HikariProxyResultSet.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.course.CourseDAOImpl.get(CourseDAOImpl.java:77) [main/:?]
+	at com.courses.management.course.FindCourseByTitle.process(FindCourseByTitle.java:27) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:42) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:34) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-10 20:46:39 DEBUG MainController:39 - doCommand: input=find_course_by_title
+2020-03-10 20:46:42 DEBUG CourseDAOImpl:69 - get: course.title=JS
+2020-03-10 20:46:42 ERROR CourseDAOImpl:82 - get: course.title=JS
+org.postgresql.util.PSQLException: ResultSet not positioned properly, perhaps you need to call next.
+	at org.postgresql.jdbc.PgResultSet.checkResultSet(PgResultSet.java:2772) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:1894) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.HikariProxyResultSet.getString(HikariProxyResultSet.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.course.CourseDAOImpl.get(CourseDAOImpl.java:77) [main/:?]
+	at com.courses.management.course.FindCourseByTitle.process(FindCourseByTitle.java:27) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:42) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:34) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-10 20:49:16 DEBUG MainController:39 - doCommand: input=find_course_by_title
+2020-03-10 20:49:18 DEBUG CourseDAOImpl:69 - get: course.title=JS
+2020-03-10 20:49:18 ERROR CourseDAOImpl:82 - get: course.title=JS
+org.postgresql.util.PSQLException: ResultSet not positioned properly, perhaps you need to call next.
+	at org.postgresql.jdbc.PgResultSet.checkResultSet(PgResultSet.java:2772) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:1894) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.HikariProxyResultSet.getString(HikariProxyResultSet.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.course.CourseDAOImpl.get(CourseDAOImpl.java:77) [main/:?]
+	at com.courses.management.course.FindCourseByTitle.process(FindCourseByTitle.java:27) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:42) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:34) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-10 20:52:11 DEBUG MainController:39 - doCommand: input=find_course_by_title
+2020-03-10 20:52:13 DEBUG CourseDAOImpl:69 - get: course.title=JS
+2020-03-10 20:52:13 ERROR CourseDAOImpl:82 - get: course.title=JS
+org.postgresql.util.PSQLException: ResultSet not positioned properly, perhaps you need to call next.
+	at org.postgresql.jdbc.PgResultSet.checkResultSet(PgResultSet.java:2772) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:1894) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.HikariProxyResultSet.getString(HikariProxyResultSet.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.course.CourseDAOImpl.get(CourseDAOImpl.java:77) [main/:?]
+	at com.courses.management.course.FindCourseByTitle.process(FindCourseByTitle.java:27) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:42) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:34) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-10 21:00:50 DEBUG MainController:41 - doCommand: input=find_course_by_id
+2020-03-10 21:00:53 DEBUG CourseDAOImpl:51 - get: course.id=1
+2020-03-10 21:00:53 ERROR CourseDAOImpl:63 - get: course.id=1
+org.postgresql.util.PSQLException: ResultSet not positioned properly, perhaps you need to call next.
+	at org.postgresql.jdbc.PgResultSet.checkResultSet(PgResultSet.java:2772) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:1894) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.HikariProxyResultSet.getString(HikariProxyResultSet.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.course.CourseDAOImpl.get(CourseDAOImpl.java:59) [main/:?]
+	at com.courses.management.course.CourseDAOImpl.get(CourseDAOImpl.java:15) [main/:?]
+	at com.courses.management.course.FindCourseByID.process(FindCourseByID.java:25) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:44) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:36) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-10 21:11:26 DEBUG MainController:41 - doCommand: input=find_course_by_id
+2020-03-10 21:11:28 DEBUG CourseDAOImpl:51 - get: course.id=1
