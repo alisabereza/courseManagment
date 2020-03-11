@@ -24,7 +24,8 @@ public class MainController {
                 new FindCourseByTitle(view),
                 new FindCourseByID(view),
                 new UpdateCourse(view),
-                new FindAllCoursesByStatus(view)
+                new FindAllCoursesByStatus(view),
+                new DeleteCourse(view)
         );
     }
 

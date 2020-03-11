@@ -21,6 +21,7 @@ public class CourseDAOImpl implements  CourseDAO {
 
     private final static String UPDATE = "update course set title = ?, status = ? where id = ?;";
     private final static String ALL_BY_STATUS = "select id, title, status from course where status = ?;";
+    private final static String DELETE = "delete from course where id = ?;";
 
     private HikariDataSource dataSource = DatabaseConnector.getConnector();
 
@@ -55,7 +56,15 @@ public class CourseDAOImpl implements  CourseDAO {
 
     @Override
     public void delete(int id) {
+        LOG.debug(String.format("delete: course.id=%s", id));
 
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement(DELETE)) {
+            statement.setInt(1, id);
+            statement.execute();
+        } catch (SQLException e) {
+            LOG.error(String.format("delete: course.id=%s", id), e);
+        }
     }
 
 
