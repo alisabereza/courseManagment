@@ -1,6 +1,7 @@
 package com.courses.management.course;
 
 import com.courses.management.common.Command;
+import com.courses.management.common.InputValueValidator;
 import com.courses.management.common.View;
 
 public class FindCourseByTitle implements Command {
@@ -21,18 +22,10 @@ public class FindCourseByTitle implements Command {
     @Override
     public void process() {
         view.write("Enter a course title");
-        String title = validate(view.read());
+        String title = InputValueValidator.validateString(view);
 
         Course course = courseDAO.get(title);
         System.out.println(course.getTitle());
         view.write(String.format("Course found: %s", course.toString()));
-    }
-
-    private String validate(String value) {
-        while (value.trim().isEmpty()) {
-            view.write("Please enter the correct title");
-            value = view.read();
-        }
-        return value;
     }
 }

@@ -1,6 +1,7 @@
 package com.courses.management.course;
 
 import com.courses.management.common.Command;
+import com.courses.management.common.InputValueValidator;
 import com.courses.management.common.View;
 
 public class FindCourseByID implements Command {
@@ -21,7 +22,7 @@ public class FindCourseByID implements Command {
     @Override
     public void process() {
         view.write("Enter a course ID");
-        int id = Integer.valueOf(view.read());
+        int id = InputValueValidator.validateInt(view);
 
         Course course = courseDAO.get(id);
 
