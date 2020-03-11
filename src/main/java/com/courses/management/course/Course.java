@@ -9,7 +9,12 @@ import java.util.List;
 public class Course extends BaseEntity {
     private int id;
 
-
+    @Override
+    public String toString() {
+        return  "Course ID: " + this.getId() +
+                "   Course Title: " + this.getTitle() +
+                "   Course Status: " + this.getCourseStatus();
+    }
 
     private String title;
     private List<User> users;

@@ -24,21 +24,22 @@ public class UpdateCourse implements Command {
         String title = InputValueValidator.validateString(view);
         try {
             Course course = courseDAO.get(title);
-            System.out.println("Course found. To update course title, enter command 'update_course_title'");
-            System.out.println("To update course status, enter command 'update_course_status");
+            System.out.println("Course found. To update course title, type 'title'");
+            System.out.println("To update course status, type 'status'");
             switch (view.read()) {
-                case "update_course_title":
+                case "title":
                     System.out.println("Enter new title: ");
                     String newTitle = InputValueValidator.validateString(view);
                     course.setTitle(newTitle);
                     break;
-                case "update_course_status":
+                case "status":
                     System.out.println("Enter new status: ");
-                    String newStatus = InputValueValidator.validateString(view);
+                    String newStatus = InputValueValidator.validateCourseStatus(view);
                     course.setCourseStatus(CourseStatus.valueOf(newStatus));
                     break;
                 default:
-                    System.out.println("Invalid command");
+                    System.out.println("Invalid command. Try again");
+                    process();
                     break;
             }
             courseDAO.update(course);

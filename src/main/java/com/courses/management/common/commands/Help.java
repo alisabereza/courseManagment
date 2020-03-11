@@ -24,6 +24,9 @@ public class Help implements Command {
         view.write("create_course          | create a course");
         view.write("find_course_by_title   | find a course");
         view.write("find_course_by_title   | find a course");
+        view.write("update_course          | find a course");
+        view.write("courses_by_status      | list courses by status");
+
         view.write("-------------------------------------------------");
     }
 }

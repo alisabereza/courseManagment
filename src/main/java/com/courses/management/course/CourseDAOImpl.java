@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CourseDAOImpl implements  CourseDAO {
@@ -19,6 +20,7 @@ public class CourseDAOImpl implements  CourseDAO {
     private final static String SELECT_BY_TITLE = "select id, title, status from course where title = ?;";
 
     private final static String UPDATE = "update course set title = ?, status = ? where id = ?;";
+    private final static String ALL_BY_STATUS = "select id, title, status from course where status = ?;";
 
     private HikariDataSource dataSource = DatabaseConnector.getConnector();
 
@@ -106,6 +108,32 @@ public class CourseDAOImpl implements  CourseDAO {
         @Override
     public List<Course> getAll() {
         return null;
+    }
+
+    public List<Course> getAllByStatus(String status) {
+        LOG.debug(String.format("get All by status: course.status=%s", status));
+
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement(ALL_BY_STATUS)) {
+            statement.setString(1, status);
+            ResultSet resultSet = statement.executeQuery();
+
+            List<Course> courses = new ArrayList<>();
+            Course course;
+            while (resultSet.next()) {
+                course = new Course();
+
+                course.setId(resultSet.getInt("id"));
+                course.setTitle(resultSet.getString("title"));
+                course.setCourseStatus(CourseStatus.valueOf(resultSet.getString("status")));
+                courses.add(course);
+
+            }
+            return courses;
+        } catch (SQLException e) {
+            LOG.error(String.format("get All by status: course.status=%s", status), e);
+            return null;
+        }
     }
 
 }
