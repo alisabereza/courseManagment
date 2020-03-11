@@ -7,6 +7,10 @@ import com.courses.management.user.User;
 import java.util.List;
 
 public class Course extends BaseEntity {
+    private int id;
+
+
+
     private String title;
     private List<User> users;
     private CourseStatus courseStatus;

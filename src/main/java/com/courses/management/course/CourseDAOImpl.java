@@ -1,6 +1,5 @@
 package com.courses.management.course;
 
-import com.courses.management.common.DataAccessObject;
 import com.courses.management.common.DatabaseConnector;
 import com.zaxxer.hikari.HikariDataSource;
 import org.apache.logging.log4j.LogManager;
@@ -18,6 +17,8 @@ public class CourseDAOImpl implements  CourseDAO {
             "VALUES(?, ?);";
     private final static String SELECT_BY_ID = "select id, title, status from course where id = ?;";
     private final static String SELECT_BY_TITLE = "select id, title, status from course where title = ?;";
+
+    private final static String UPDATE = "update course set title = ?, status = ? where id = ?;";
 
     private HikariDataSource dataSource = DatabaseConnector.getConnector();
 
@@ -37,7 +38,17 @@ public class CourseDAOImpl implements  CourseDAO {
 
     @Override
     public void update(Course course) {
+        LOG.debug(String.format("update: course.title=%s", course.getTitle()));
 
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement(UPDATE)) {
+            statement.setString(1, course.getTitle());
+            statement.setString(2, course.getCourseStatus().getStatus());
+            statement.setInt(3, course.getId());
+            statement.execute();
+        } catch (SQLException e) {
+            LOG.error(String.format("update: course.title=%s", course.getTitle()), e);
+        }
     }
 
     @Override
@@ -57,6 +68,7 @@ public class CourseDAOImpl implements  CourseDAO {
 
             Course course = new Course();
             while (resultSet.next()) {
+                course.setId(resultSet.getInt("id"));
                 course.setTitle(resultSet.getString("title"));
                 course.setCourseStatus(CourseStatus.valueOf(resultSet.getString("status")));
 
@@ -79,6 +91,7 @@ public class CourseDAOImpl implements  CourseDAO {
 
             Course course = new Course();
             while (resultSet.next()) {
+                course.setId(resultSet.getInt("id"));
                 course.setTitle(resultSet.getString("title"));
                 course.setCourseStatus(CourseStatus.valueOf(resultSet.getString("status")));
 
