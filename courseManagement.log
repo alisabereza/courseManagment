@@ -121,3 +121,11 @@ org.postgresql.util.PSQLException: ResultSet not positioned properly, perhaps yo
 2020-03-11 13:43:59 DEBUG CourseDAOImpl:114 - get All by status: course.status=NOT_STARTED
 2020-03-11 13:45:49 DEBUG MainController:41 - doCommand: input=courses_by_status
 2020-03-11 13:45:53 DEBUG CourseDAOImpl:114 - get All by status: course.status=NOT_STARTED
+2020-03-11 15:47:11 DEBUG MainController:42 - doCommand: input=create_course
+2020-03-11 15:47:26 DEBUG CourseDAOImpl:30 - create: course.title=Musicion
+2020-03-11 15:47:58 DEBUG MainController:42 - doCommand: input=delete
+2020-03-11 15:48:06 DEBUG MainController:42 - doCommand: input=delete_course
+2020-03-11 15:48:19 DEBUG CourseDAOImpl:96 - get: course.title=Musicion
+2020-03-11 15:48:19 DEBUG CourseDAOImpl:59 - delete: course.id=4
+2020-03-11 16:07:33 DEBUG MainController:43 - doCommand: input=all_courses
+2020-03-11 16:07:33 DEBUG CourseDAOImpl:120 - get All courses

@@ -20,6 +20,7 @@ public class CourseDAOImpl implements  CourseDAO {
     private final static String SELECT_BY_TITLE = "select id, title, status from course where title = ?;";
 
     private final static String UPDATE = "update course set title = ?, status = ? where id = ?;";
+    private final static String ALL_COURSES = "select id, title, status from course;";
     private final static String ALL_BY_STATUS = "select id, title, status from course where status = ?;";
     private final static String DELETE = "delete from course where id = ?;";
 
@@ -116,7 +117,28 @@ public class CourseDAOImpl implements  CourseDAO {
     }
         @Override
     public List<Course> getAll() {
-        return null;
+            LOG.debug("get All courses");
+
+            try (Connection connection = dataSource.getConnection();
+                 PreparedStatement statement = connection.prepareStatement(ALL_COURSES)) {
+                 ResultSet resultSet = statement.executeQuery();
+
+                List<Course> courses = new ArrayList<>();
+                Course course;
+                while (resultSet.next()) {
+                    course = new Course();
+
+                    course.setId(resultSet.getInt("id"));
+                    course.setTitle(resultSet.getString("title"));
+                    course.setCourseStatus(CourseStatus.valueOf(resultSet.getString("status")));
+                    courses.add(course);
+
+                }
+                return courses;
+            } catch (SQLException e) {
+                LOG.error("get All courses: ", e);
+                return null;
+            }
     }
 
     public List<Course> getAllByStatus(String status) {
