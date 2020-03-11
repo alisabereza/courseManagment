@@ -1,7 +1,6 @@
 package com.courses.management.course;
 
 import com.courses.management.common.Command;
-import com.courses.management.common.DataAccessObject;
 import com.courses.management.common.View;
 
 public class FindCourseByTitle implements Command {
@@ -26,7 +25,7 @@ public class FindCourseByTitle implements Command {
 
         Course course = courseDAO.get(title);
         System.out.println(course.getTitle());
-        //view.write(String.format("Course found: %s", course.toString()));
+        view.write(String.format("Course found: %s", course.toString()));
     }
 
     private String validate(String value) {

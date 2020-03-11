@@ -12,6 +12,7 @@ public class FindCourseByID implements Command {
         this.view = view;
         courseDAO = new CourseDAOImpl();
     }
+
     @Override
     public String command() {
         return "find_course_by_id";
