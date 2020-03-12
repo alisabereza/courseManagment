@@ -3,6 +3,7 @@ package com.courses.management.common;
 import com.courses.management.common.commands.Exit;
 import com.courses.management.common.commands.Help;
 import com.courses.management.course.*;
+import com.courses.management.user.CreateUser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -26,7 +27,8 @@ public class MainController {
                 new UpdateCourse(view),
                 new FindAllCoursesByStatus(view),
                 new DeleteCourse(view),
-                new FindAllCourses(view)
+                new FindAllCourses(view),
+                new CreateUser(view)
         );
     }
 

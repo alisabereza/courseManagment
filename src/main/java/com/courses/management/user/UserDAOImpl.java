@@ -1,12 +1,43 @@
 package com.courses.management.user;
 
 import com.courses.management.common.DataAccessObject;
+import com.courses.management.common.DatabaseConnector;
+import com.courses.management.course.CourseDAOImpl;
+import com.zaxxer.hikari.HikariDataSource;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 public class UserDAOImpl implements DataAccessObject<User> {
+    private final static Logger LOG = LogManager.getLogger(UserDAOImpl.class);
+    private final static String INSERT = "INSERT INTO users (first_name, last_name, email, user_role, status, course_id) " +
+            "VALUES(?,?,?,?,?,(select id from course where title = ?));";
+    private final static String EMAIL = "select id from users where email = ?;";
+
+    private HikariDataSource dataSource = DatabaseConnector.getConnector();
+
     @Override
     public void create(User user) {
+        LOG.debug(String.format("create: user: %s", user.toString()));
+        Optional<String> optionalCourse = Optional.ofNullable(user.getCourse().getTitle());
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement(INSERT)) {
+            statement.setString(1, user.getFirstName());
+            statement.setString(2, user.getLastName());
+            statement.setString(3, user.getEmail());
+            statement.setString(4, user.getUserRole().getRole());
+            statement.setString(5, user.getStatus().getStatus());
+            statement.setString(6, optionalCourse.orElse(""));
+            statement.execute();
+        } catch (SQLException e) {
+            LOG.error(String.format("create: user: %s", user.toString()), e);
+        }
 
     }
 
@@ -28,5 +59,23 @@ public class UserDAOImpl implements DataAccessObject<User> {
     @Override
     public List<User> getAll() {
         return null;
+    }
+
+    public  boolean checkEmail (String email) {
+        boolean emailExists = false;
+        LOG.debug(String.format("check email=%s", email));
+
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement(INSERT)) {
+            statement.setString(1, email);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                emailExists = true;
+            }
+        } catch (SQLException e) {
+            LOG.error(String.format("check email=%s", email), e);
+        }
+
+        return emailExists;
     }
 }
