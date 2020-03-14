@@ -1,8 +1,6 @@
 package com.courses.management.course;
 
 import com.courses.management.common.Command;
-import com.courses.management.common.DataAccessObject;
-import com.courses.management.common.InputValueValidator;
 import com.courses.management.common.View;
 import com.courses.management.common.commands.utils.InputString;
 
@@ -31,7 +29,7 @@ public class CreateCourse implements Command {
 
     private void validateTitle(String title) {
         Course course = courseDAO.get(title);
-        if (course != null) {
+        if (course == null) {
             throw new IllegalArgumentException(String.format("Course with title %s already exists", title));
         }
     }
