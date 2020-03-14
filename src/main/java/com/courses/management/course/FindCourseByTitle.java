@@ -3,6 +3,7 @@ package com.courses.management.course;
 import com.courses.management.common.Command;
 import com.courses.management.common.InputValueValidator;
 import com.courses.management.common.View;
+import com.courses.management.common.commands.utils.InputString;
 
 public class FindCourseByTitle implements Command {
 
@@ -16,16 +17,18 @@ public class FindCourseByTitle implements Command {
 
     @Override
     public String command() {
-        return "find_course_by_title";
+        return "find_course|title";
     }
 
     @Override
-    public void process() {
-        view.write("Enter a course title");
-        String title = InputValueValidator.validateString(view);
+    public void process(InputString input) {
 
+        input.validateParameters(command());
+        String title = input.getParameters()[1];
         Course course = courseDAO.get(title);
-        System.out.println(course.getTitle());
-        view.write(String.format("Course found: %s", course.toString()));
+        if (course ==null) {
+            System.out.println(String.format("Course with the name %s was not found", title));
+        }
+        else Courses.printCourse(view, course);
     }
 }
