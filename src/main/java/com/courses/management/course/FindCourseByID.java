@@ -3,6 +3,7 @@ package com.courses.management.course;
 import com.courses.management.common.Command;
 import com.courses.management.common.InputValueValidator;
 import com.courses.management.common.View;
+import com.courses.management.common.commands.utils.InputString;
 
 public class FindCourseByID implements Command {
 
@@ -20,7 +21,7 @@ public class FindCourseByID implements Command {
     }
 
     @Override
-    public void process() {
+    public void process(InputString input) {
         view.write("Enter a course ID");
         int id = InputValueValidator.validateInt(view);
 

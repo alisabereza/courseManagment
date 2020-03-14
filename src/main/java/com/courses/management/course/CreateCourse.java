@@ -4,10 +4,11 @@ import com.courses.management.common.Command;
 import com.courses.management.common.DataAccessObject;
 import com.courses.management.common.InputValueValidator;
 import com.courses.management.common.View;
+import com.courses.management.common.commands.utils.InputString;
 
 public class CreateCourse implements Command {
     private final View view;
-    private DataAccessObject<Course> courseDAO;
+    private CourseDAO courseDAO;
 
     public CreateCourse(View view) {
         this.view = view;
@@ -16,17 +17,22 @@ public class CreateCourse implements Command {
 
     @Override
     public String command() {
-        return "create_course";
+        return "create_course|title";
     }
 
     @Override
-    public void process() {
-        view.write("Enter a course title");
-        String title = InputValueValidator.validateString(view);
-        Course course = new Course();
-        course.setTitle(title);
-        course.setCourseStatus(CourseStatus.NOT_STARTED);
+    public void process(InputString input) {
+        input.validateParameters(command());
+        Course course = Courses.mapCourse(input);
+        validateTitle(course.getTitle());
         courseDAO.create(course);
-        view.write(String.format("Course created with title - %s", title));
+        view.write(String.format("Course created with title - %s", course.getTitle()));
+    }
+
+    private void validateTitle(String title) {
+        Course course = courseDAO.get(title);
+        if (course != null) {
+            throw new IllegalArgumentException(String.format("Course with title %s already exists", title));
+        }
     }
 }

@@ -92,6 +92,7 @@ public class CourseDAOImpl implements  CourseDAO {
         }
 
     }
+
     @Override
     public Course get (String title) {
         LOG.debug(String.format("get: course.title=%s", title));
