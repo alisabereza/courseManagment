@@ -6,7 +6,8 @@ import java.util.Optional;
 public enum CourseStatus {
     NOT_STARTED("NOT_STARTED"),
     IN_PROGRESS("IN_PROGRESS"),
-    FINISHED("FINISHED");
+    FINISHED("FINISHED"),
+    DELETED("DELETED");
 
     private String status;
 
@@ -23,4 +24,5 @@ public enum CourseStatus {
                 .filter(enumValue -> enumValue.getStatus().equals(status))
                 .findAny();
     }
+
 }
