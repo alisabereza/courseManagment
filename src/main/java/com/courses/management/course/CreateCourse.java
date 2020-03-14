@@ -29,7 +29,8 @@ public class CreateCourse implements Command {
 
     private void validateTitle(String title) {
         Course course = courseDAO.get(title);
-        if (course == null) {
+        System.out.println(course);
+        if (course.getId()>0) {
             throw new IllegalArgumentException(String.format("Course with title %s already exists", title));
         }
     }
