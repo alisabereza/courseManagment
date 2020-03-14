@@ -9,8 +9,8 @@ import com.courses.management.course.CourseStatus;
 
 public class CreateUser implements Command {
 
-    View view;
-    DataAccessObject<User> userDAO;
+    private final View view;
+    private DataAccessObject<User> userDAO;
     public CreateUser(View view) {
         this.view = view;
         userDAO = new UserDAOImpl();

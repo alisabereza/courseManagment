@@ -129,3 +129,300 @@ org.postgresql.util.PSQLException: ResultSet not positioned properly, perhaps yo
 2020-03-11 15:48:19 DEBUG CourseDAOImpl:59 - delete: course.id=4
 2020-03-11 16:07:33 DEBUG MainController:43 - doCommand: input=all_courses
 2020-03-11 16:07:33 DEBUG CourseDAOImpl:120 - get All courses
+2020-03-12 17:01:56 DEBUG MainController:43 - doCommand: input=create_user
+2020-03-12 17:02:38 DEBUG MainController:45 - doCommand: input=create_user
+2020-03-12 17:02:59 DEBUG UserDAOImpl:66 - check email=oksana.bilozir@mail.ru
+2020-03-12 17:02:59 ERROR UserDAOImpl:76 - check email=oksana.bilozir@mail.ru
+org.postgresql.util.PSQLException: Не указано значение для параметра 2.
+	at org.postgresql.core.v3.SimpleParameterList.checkAllParametersSet(SimpleParameterList.java:257) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:292) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:441) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:365) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:143) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:106) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-3.4.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.user.UserDAOImpl.checkEmail(UserDAOImpl.java:71) [main/:?]
+	at com.courses.management.common.InputValueValidator.validateEmail(InputValueValidator.java:64) [main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:32) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:48) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:40) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-12 17:03:11 DEBUG UserDAOImpl:66 - check email=ob@gmail.com
+2020-03-12 17:03:11 ERROR UserDAOImpl:76 - check email=ob@gmail.com
+org.postgresql.util.PSQLException: Не указано значение для параметра 2.
+	at org.postgresql.core.v3.SimpleParameterList.checkAllParametersSet(SimpleParameterList.java:257) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:292) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:441) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:365) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:143) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:106) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-3.4.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.user.UserDAOImpl.checkEmail(UserDAOImpl.java:71) [main/:?]
+	at com.courses.management.common.InputValueValidator.validateEmail(InputValueValidator.java:68) [main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:32) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:48) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:40) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-12 17:03:15 DEBUG UserDAOImpl:66 - check email=exit
+2020-03-12 17:03:15 ERROR UserDAOImpl:76 - check email=exit
+org.postgresql.util.PSQLException: Не указано значение для параметра 2.
+	at org.postgresql.core.v3.SimpleParameterList.checkAllParametersSet(SimpleParameterList.java:257) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:292) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:441) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:365) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:143) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:106) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-3.4.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.user.UserDAOImpl.checkEmail(UserDAOImpl.java:71) [main/:?]
+	at com.courses.management.common.InputValueValidator.validateEmail(InputValueValidator.java:68) [main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:32) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:48) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:40) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-12 17:04:01 DEBUG MainController:45 - doCommand: input=create_user
+2020-03-12 17:04:16 DEBUG UserDAOImpl:66 - check email=ob@mail.ru
+2020-03-12 17:04:16 ERROR UserDAOImpl:76 - check email=ob@mail.ru
+org.postgresql.util.PSQLException: Не указано значение для параметра 2.
+	at org.postgresql.core.v3.SimpleParameterList.checkAllParametersSet(SimpleParameterList.java:257) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:292) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:441) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:365) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:143) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:106) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-3.4.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.user.UserDAOImpl.checkEmail(UserDAOImpl.java:71) [main/:?]
+	at com.courses.management.common.InputValueValidator.validateEmail(InputValueValidator.java:64) [main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:32) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:48) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:40) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-12 17:05:42 DEBUG CourseDAOImpl:97 - get: course.title=JS
+2020-03-12 17:05:42 DEBUG UserDAOImpl:27 - create: user: com.courses.management.user.User@f316aeb
+2020-03-12 17:48:59 DEBUG MainController:45 - doCommand: input=create_user
+2020-03-12 17:49:22 DEBUG UserDAOImpl:66 - check email=alisa.selezneva@gmail.com
+2020-03-12 17:49:22 ERROR UserDAOImpl:76 - check email=alisa.selezneva@gmail.com
+org.postgresql.util.PSQLException: Не указано значение для параметра 2.
+	at org.postgresql.core.v3.SimpleParameterList.checkAllParametersSet(SimpleParameterList.java:257) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:292) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:441) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:365) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:143) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:106) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-3.4.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.user.UserDAOImpl.checkEmail(UserDAOImpl.java:71) [main/:?]
+	at com.courses.management.common.InputValueValidator.validateEmail(InputValueValidator.java:64) [main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:32) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:48) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:40) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-12 17:50:01 DEBUG CourseDAOImpl:97 - get: course.title=Nokia
+2020-03-12 17:50:01 DEBUG UserDAOImpl:27 - create: user: com.courses.management.user.User@8dbfffb
+2020-03-12 17:50:42 DEBUG MainController:45 - doCommand: input=create_user
+2020-03-12 17:50:59 DEBUG UserDAOImpl:66 - check email=IS@gmail.com
+2020-03-12 17:50:59 ERROR UserDAOImpl:76 - check email=IS@gmail.com
+org.postgresql.util.PSQLException: Не указано значение для параметра 2.
+	at org.postgresql.core.v3.SimpleParameterList.checkAllParametersSet(SimpleParameterList.java:257) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:292) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:441) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:365) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:143) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:106) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-3.4.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.user.UserDAOImpl.checkEmail(UserDAOImpl.java:71) [main/:?]
+	at com.courses.management.common.InputValueValidator.validateEmail(InputValueValidator.java:64) [main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:32) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:48) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:40) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-12 17:51:07 DEBUG CourseDAOImpl:97 - get: course.title=JS
+2020-03-12 17:51:07 DEBUG UserDAOImpl:27 - create: user: com.courses.management.user.User@a22cb6a
+2020-03-12 17:53:19 DEBUG MainController:45 - doCommand: input=create_user
+2020-03-12 17:53:44 DEBUG UserDAOImpl:67 - check email=varshap@mail.ru
+2020-03-12 17:53:44 ERROR UserDAOImpl:77 - check email=varshap@mail.ru
+org.postgresql.util.PSQLException: Не указано значение для параметра 2.
+	at org.postgresql.core.v3.SimpleParameterList.checkAllParametersSet(SimpleParameterList.java:257) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:292) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:441) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:365) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:143) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:106) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-3.4.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.user.UserDAOImpl.checkEmail(UserDAOImpl.java:72) [main/:?]
+	at com.courses.management.common.InputValueValidator.validateEmail(InputValueValidator.java:64) [main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:32) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:48) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:40) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-12 17:53:51 DEBUG CourseDAOImpl:97 - get: course.title=JS
+2020-03-12 17:53:51 DEBUG UserDAOImpl:27 - create: user: com.courses.management.user.User@f316aeb
+2020-03-12 17:55:56 DEBUG MainController:45 - doCommand: input=create_user
+2020-03-12 17:56:27 DEBUG UserDAOImpl:67 - check email=v.solodryn@mail.ru
+2020-03-12 17:56:27 ERROR UserDAOImpl:77 - check email=v.solodryn@mail.ru
+org.postgresql.util.PSQLException: Не указано значение для параметра 2.
+	at org.postgresql.core.v3.SimpleParameterList.checkAllParametersSet(SimpleParameterList.java:257) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:292) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:441) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:365) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:143) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:106) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-3.4.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.user.UserDAOImpl.checkEmail(UserDAOImpl.java:72) [main/:?]
+	at com.courses.management.common.InputValueValidator.validateEmail(InputValueValidator.java:64) [main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:32) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:48) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:40) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-12 17:56:33 DEBUG CourseDAOImpl:97 - get: course.title=JS
+2020-03-12 17:56:33 DEBUG UserDAOImpl:27 - create: user: com.courses.management.user.User@f316aeb
+2020-03-13 11:40:44 DEBUG MainController:45 - doCommand: input=create_user
+2020-03-13 11:41:09 DEBUG UserDAOImpl:66 - check email=inna.pautinna@mail.ru
+2020-03-13 11:41:22 DEBUG CourseDAOImpl:97 - get: course.title=JAVA
+2020-03-13 11:41:22 DEBUG UserDAOImpl:27 - create: user: com.courses.management.user.User@71c27ee8
+2020-03-13 11:41:51 DEBUG MainController:45 - doCommand: input=create_user
+2020-03-13 11:42:28 DEBUG UserDAOImpl:66 - check email=IS@gmail.com
+2020-03-13 11:42:42 DEBUG UserDAOImpl:66 - check email=udod.shmudod@gmail.com
+2020-03-13 11:42:48 DEBUG CourseDAOImpl:97 - get: course.title=JAVA
+2020-03-13 11:42:48 DEBUG UserDAOImpl:27 - create: user: com.courses.management.user.User@5b1ebf56
+2020-03-14 11:43:42 DEBUG MainController:45 - doCommand: input=update_user
+2020-03-14 11:45:04 DEBUG MainController:47 - doCommand: input=update_user
+2020-03-14 11:46:14 DEBUG MainController:47 - doCommand: input=update_user
+2020-03-14 11:46:28 DEBUG UserDAOImpl:105 - find user by email: ob@mail.ru
+2020-03-14 11:46:28 ERROR UserDAOImpl:126 - check email=ob@mail.ru
+org.postgresql.util.PSQLException: Колонки first_name не найдено в этом ResultSet’’е.
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:2593) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:2467) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.HikariProxyResultSet.getString(HikariProxyResultSet.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.user.UserDAOImpl.findUserByEmail(UserDAOImpl.java:114) [main/:?]
+	at com.courses.management.user.UpdateUser.process(UpdateUser.java:30) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:50) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:42) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-14 11:46:44 DEBUG CourseDAOImpl:97 - get: course.title=JS
+2020-03-14 11:48:33 DEBUG MainController:47 - doCommand: input=update_user
+2020-03-14 11:48:39 DEBUG UserDAOImpl:105 - find user by email: ob@mail.ru
+2020-03-14 11:48:39 ERROR UserDAOImpl:126 - check email=ob@mail.ru
+org.postgresql.util.PSQLException: Колонки first_name не найдено в этом ResultSet’’е.
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:2593) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:2467) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.HikariProxyResultSet.getString(HikariProxyResultSet.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.user.UserDAOImpl.findUserByEmail(UserDAOImpl.java:114) [main/:?]
+	at com.courses.management.user.UpdateUser.process(UpdateUser.java:30) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:50) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:42) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-14 11:50:49 DEBUG MainController:47 - doCommand: input=update_user
+2020-03-14 11:51:10 DEBUG UserDAOImpl:105 - find user by email: ob@mail.ru
+2020-03-14 11:52:48 DEBUG MainController:47 - doCommand: input=update_ser
+2020-03-14 11:52:52 DEBUG MainController:47 - doCommand: input=update_ser
+2020-03-14 11:52:56 DEBUG MainController:47 - doCommand: input=update_user
+2020-03-14 11:53:02 DEBUG UserDAOImpl:105 - find user by email: ob@mail.ru
+2020-03-14 11:53:35 DEBUG MainController:47 - doCommand: input=update_user
+2020-03-14 11:53:45 DEBUG UserDAOImpl:105 - find user by email: ob@mail.ru
+2020-03-14 12:01:00 DEBUG MainController:47 - doCommand: input=update_user
+2020-03-14 12:01:21 DEBUG UserDAOImpl:105 - find user by email: ob@mail.ru
+2020-03-14 12:04:17 DEBUG MainController:47 - doCommand: input=update_user
+2020-03-14 12:04:29 DEBUG UserDAOImpl:105 - find user by email: ob@mail.ru
+2020-03-14 12:07:59 DEBUG MainController:47 - doCommand: input=update_user
+2020-03-14 12:08:04 DEBUG UserDAOImpl:105 - find user by email: ob@mail.ru
+2020-03-14 12:08:41 DEBUG MainController:47 - doCommand: input=update_user
+2020-03-14 12:08:49 DEBUG UserDAOImpl:105 - find user by email: ob@mail.ru
+2020-03-14 12:09:04 DEBUG CourseDAOImpl:97 - get: course.title=JS
+2020-03-14 12:09:04 DEBUG UserDAOImpl:49 - update user: com.courses.management.user.User@3e7dd664
+2020-03-14 12:09:04 ERROR UserDAOImpl:65 - update user: com.courses.management.user.User@3e7dd664
+org.postgresql.util.PSQLException: Не указано значение для параметра 5.
+	at org.postgresql.core.v3.SimpleParameterList.checkAllParametersSet(SimpleParameterList.java:257) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:292) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:441) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:365) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:143) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.execute(PgPreparedStatement.java:132) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44) ~[HikariCP-3.4.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.user.UserDAOImpl.update(UserDAOImpl.java:61) [main/:?]
+	at com.courses.management.user.UpdateUser.process(UpdateUser.java:76) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:50) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:42) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-14 12:14:29 DEBUG MainController:47 - doCommand: input=update_user
+2020-03-14 12:14:35 DEBUG UserDAOImpl:105 - find user by email: ob@mail.ru
+2020-03-14 12:14:46 DEBUG CourseDAOImpl:97 - get: course.title=JS
+2020-03-14 12:14:46 DEBUG UserDAOImpl:49 - update user: com.courses.management.user.User@3e7dd664
+2020-03-14 12:14:46 ERROR UserDAOImpl:65 - update user: com.courses.management.user.User@3e7dd664
+org.postgresql.util.PSQLException: Запрос не вернул результатов.
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:107) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-3.4.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.user.UserDAOImpl.update(UserDAOImpl.java:62) [main/:?]
+	at com.courses.management.user.UpdateUser.process(UpdateUser.java:76) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:50) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:42) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-14 12:21:34 DEBUG MainController:47 - doCommand: input=update_user
+2020-03-14 12:21:44 DEBUG UserDAOImpl:105 - find user by email: alisa.selezneva@gmail.com
+2020-03-14 12:23:08 DEBUG MainController:47 - doCommand: input=update_user
+2020-03-14 12:23:14 DEBUG UserDAOImpl:105 - find user by email: IS@gmail.com
+2020-03-14 12:25:11 DEBUG MainController:47 - doCommand: input=update_user
+2020-03-14 12:25:15 DEBUG UserDAOImpl:105 - find user by email: IS@gmail.com
+2020-03-14 12:25:44 DEBUG CourseDAOImpl:97 - get: course.title=JAVA
+2020-03-14 12:25:44 DEBUG UserDAOImpl:49 - update user: com.courses.management.user.User@3e7dd664
+2020-03-14 12:25:44 ERROR UserDAOImpl:65 - update user: com.courses.management.user.User@3e7dd664
+org.postgresql.util.PSQLException: Запрос не вернул результатов.
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:107) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-3.4.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.user.UserDAOImpl.update(UserDAOImpl.java:62) [main/:?]
+	at com.courses.management.user.UpdateUser.process(UpdateUser.java:76) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:50) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:42) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-14 12:29:28 DEBUG MainController:47 - doCommand: input=update_user
+2020-03-14 12:29:36 DEBUG UserDAOImpl:105 - find user by email: ob@mail.ru
+2020-03-14 12:29:36 DEBUG CourseDAOImpl:74 - get: course.id=2
+2020-03-14 12:30:49 DEBUG UserDAOImpl:49 - update user: com.courses.management.user.User@4b1d6571
+2020-03-14 12:30:49 ERROR UserDAOImpl:65 - update user: com.courses.management.user.User@4b1d6571
+org.postgresql.util.PSQLException: Запрос не вернул результатов.
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:107) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-3.4.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.user.UserDAOImpl.update(UserDAOImpl.java:62) [main/:?]
+	at com.courses.management.user.UpdateUser.process(UpdateUser.java:76) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:50) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:42) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-14 12:39:37 DEBUG MainController:47 - doCommand: input=update_user
+2020-03-14 12:39:47 DEBUG UserDAOImpl:105 - find user by email: IS@gmail.com
+2020-03-14 12:39:47 DEBUG CourseDAOImpl:74 - get: course.id=1
+2020-03-14 12:40:16 DEBUG UserDAOImpl:49 - update user: User Name: IvanLast Name: SidorovEmail: IS@gmail.comRole: NEWCOMERStatus: ACTIVECourse: JAVA
+2020-03-14 12:40:16 ERROR UserDAOImpl:65 - update user: User Name: IvanLast Name: SidorovEmail: IS@gmail.comRole: NEWCOMERStatus: ACTIVECourse: JAVA
+org.postgresql.util.PSQLException: Запрос не вернул результатов.
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:107) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-3.4.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.user.UserDAOImpl.update(UserDAOImpl.java:62) [main/:?]
+	at com.courses.management.user.UpdateUser.process(UpdateUser.java:76) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:50) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:42) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-14 12:40:26 DEBUG MainController:47 - doCommand: input=update_user
+2020-03-14 12:40:53 DEBUG UserDAOImpl:105 - find user by email: alisa.selezneva@gmail.com
+2020-03-14 12:40:53 DEBUG CourseDAOImpl:74 - get: course.id=0
+2020-03-14 12:41:24 DEBUG UserDAOImpl:49 - update user: User Name: AlisaLast Name: SeleznevaEmail: alisa.selezneva@gmail.comRole: STUDENTStatus: ACTIVECourse: 
+2020-03-14 12:41:24 ERROR UserDAOImpl:65 - update user: User Name: AlisaLast Name: SeleznevaEmail: alisa.selezneva@gmail.comRole: STUDENTStatus: ACTIVECourse: 
+org.postgresql.util.PSQLException: Запрос не вернул результатов.
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:107) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-3.4.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.user.UserDAOImpl.update(UserDAOImpl.java:62) [main/:?]
+	at com.courses.management.user.UpdateUser.process(UpdateUser.java:76) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:50) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:42) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-14 12:41:37 DEBUG MainController:47 - doCommand: input=exit

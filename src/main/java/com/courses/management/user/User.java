@@ -5,6 +5,7 @@ import com.courses.management.course.Course;
 import com.courses.management.solution.Solution;
 
 import java.util.List;
+import java.util.Optional;
 
 public class User extends BaseEntity {
     private String firstName;
@@ -73,5 +74,12 @@ public class User extends BaseEntity {
 
     public void setStatus(UserStatus status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "User Name: " + this.getFirstName() + "; Last Name: " + this.getLastName() +
+                "; Email: " + this.getEmail() + "; Role: " + this.getUserRole() + "; Status: " + this.getStatus() +
+                "; Course: " + Optional.ofNullable(this.getCourse().getTitle()).orElse("") ;
     }
 }

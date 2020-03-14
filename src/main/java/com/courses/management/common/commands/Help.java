@@ -28,7 +28,8 @@ public class Help implements Command {
         view.write("update_course          | find a course");
         view.write("courses_by_status      | list courses by status");
         view.write("all_courses            | list all courses");
-        view.write("create_user            | create a user");
+    view.write("create_user            | create a user");
+        view.write("update_user            | create a user");
 
         view.write("-------------------------------------------------");
     }

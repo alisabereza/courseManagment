@@ -7,6 +7,11 @@ public class BaseEntity {
         return id;
     }
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
     public void setId(int id) {
         this.id = id;
     }

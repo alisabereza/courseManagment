@@ -4,6 +4,8 @@ import com.courses.management.course.Course;
 import com.courses.management.course.CourseDAOImpl;
 import com.courses.management.course.CourseStatus;
 import com.courses.management.user.UserDAOImpl;
+import com.courses.management.user.UserRole;
+import com.courses.management.user.UserStatus;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
@@ -26,6 +28,38 @@ public class InputValueValidator {
         while (!trueStatus) {
             try {
                 CourseStatus.valueOf(value);
+                trueStatus = true;
+            } catch (IllegalArgumentException e) {
+
+                view.write("Please enter the correct value");
+                value = view.read();
+            }
+        }
+        return value;
+    }
+
+    public static String validateUserRole (View view) {
+        value = view.read();
+        boolean trueRole = false;
+        while (!trueRole) {
+            try {
+                UserRole.valueOf(value);
+                trueRole = true;
+            } catch (IllegalArgumentException e) {
+
+                view.write("Please enter the correct value");
+                value = view.read();
+            }
+        }
+        return value;
+    }
+
+    public static String validateUserStatus (View view) {
+        value = view.read();
+        boolean trueStatus = false;
+        while (!trueStatus) {
+            try {
+                UserStatus.valueOf(value);
                 trueStatus = true;
             } catch (IllegalArgumentException e) {
 
