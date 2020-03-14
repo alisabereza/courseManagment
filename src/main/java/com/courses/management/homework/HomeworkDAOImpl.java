@@ -4,7 +4,7 @@ import com.courses.management.common.DataAccessObject;
 
 import java.util.List;
 
-public class HomeworkDAOImpl implements DataAccessObject<Homework>, HomeworkDAO {
+public class HomeworkDAOImpl implements HomeworkDAO {
     @Override
     public void create(Homework homework) {
 
