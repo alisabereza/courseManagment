@@ -4,6 +4,8 @@ import com.courses.management.common.Command;
 import com.courses.management.common.View;
 import com.courses.management.common.commands.utils.InputString;
 
+import java.util.Optional;
+
 public class UpdateCourseStatus implements Command {
     private final View view;
     private CourseDAO courseDAO;
@@ -27,24 +29,14 @@ public class UpdateCourseStatus implements Command {
         if (course.getId()==0) {
             throw new IllegalArgumentException(String.format("Course with the title %s does not exist", title));
         }
-        course.setCourseStatus(CourseStatus.valueOf(validateCourseStatus(newStatus)));
+        course.setCourseStatus(getStatus(newStatus));
         courseDAO.update(course);
         System.out.println("Course updated: " + course.toString());
     }
 
-    public  String validateCourseStatus(String newStatus) {
-        String status = newStatus;
-        boolean trueStatus = false;
-        while (!trueStatus) {
-            try {
-                CourseStatus.valueOf(newStatus);
-                trueStatus = true;
-            } catch (IllegalArgumentException e) {
-
-                view.write("Please enter the correct value");
-                status = view.read();
-            }
-        }
-        return status;
+    private CourseStatus getStatus(String status) {
+        Optional<CourseStatus> courseStatus = CourseStatus.getCourseStatus(status);
+        return courseStatus.orElseThrow(() ->
+                new IllegalArgumentException("Course status is wrong, choose the correct one"));
     }
 }
