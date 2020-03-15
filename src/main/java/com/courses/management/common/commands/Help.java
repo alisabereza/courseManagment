@@ -45,6 +45,10 @@ public class Help implements Command {
         view.write("\t|\t-> show all courses");
         view.write("---------------------------------------------------------");
 
+        view.write("\t| show_courses_by_status|status");
+        view.write("\t|\t-> show courses by status");
+        view.write("---------------------------------------------------------");
+
         view.write("\t| delete_course|title");
         view.write("\t|\t-> move course to a DELETED status");
         view.write("---------------------------------------------------------");

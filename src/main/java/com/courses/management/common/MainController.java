@@ -26,12 +26,14 @@ public class MainController {
                 new Exit(view),
                 new FindCourseByTitle(view),
                 new FindCourseByID(view),
-                new UpdateCourse(view),
-                new FindAllCoursesByStatus(view),
+                new ShowCoursesByStatus(view),
                 new DeleteCourse(view),
-                new FindAllCourses(view),
+                new ShowCourses(view),
+                new ShowCoursesByStatus(view),
                 new CreateUser(view),
-                new UpdateUser(view)
+                new UpdateUser(view),
+                new UpdateCourseTitle(view),
+                new UpdateCourseStatus(view)
         );
     }
 
