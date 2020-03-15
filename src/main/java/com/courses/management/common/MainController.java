@@ -5,6 +5,7 @@ import com.courses.management.common.commands.Help;
 import com.courses.management.common.commands.utils.InputString;
 import com.courses.management.course.*;
 import com.courses.management.user.CreateUser;
+import com.courses.management.user.CreateUserWithCourse;
 import com.courses.management.user.UpdateUser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -31,6 +32,7 @@ public class MainController {
                 new ShowCourses(view),
                 new ShowCoursesByStatus(view),
                 new CreateUser(view),
+                new CreateUserWithCourse(view),
                 new UpdateUser(view),
                 new UpdateCourseTitle(view),
                 new UpdateCourseStatus(view)

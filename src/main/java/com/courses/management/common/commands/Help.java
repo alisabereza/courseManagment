@@ -53,6 +53,14 @@ public class Help implements Command {
         view.write("\t|\t-> move course to a DELETED status");
         view.write("---------------------------------------------------------");
 
+        view.write("\t| create_user|first_name|last_name|email");
+        view.write("\t|\t-> create new user (without course assigned)");
+        view.write("---------------------------------------------------------");
+
+        view.write("\t| create_user_course|first_name|last_name|email|course");
+        view.write("\t|\t-> create new user (with course assigned)");
+        view.write("---------------------------------------------------------");
+
         view.write("\t| exit");
         view.write("\t|\t-> exit application");
         view.write("---------------------------------------------------------");

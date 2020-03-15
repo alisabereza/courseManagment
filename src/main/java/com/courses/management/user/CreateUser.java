@@ -2,10 +2,8 @@ package com.courses.management.user;
 
 import com.courses.management.common.Command;
 import com.courses.management.common.DataAccessObject;
-import com.courses.management.common.InputValueValidator;
 import com.courses.management.common.View;
-import com.courses.management.course.Course;
-import com.courses.management.course.CourseStatus;
+import com.courses.management.common.commands.utils.InputString;
 
 public class CreateUser implements Command {
 
@@ -19,40 +17,14 @@ public class CreateUser implements Command {
 
     @Override
     public String command() {
-        return "create_user";
+        return "create_user|first_name|last_name|email";
     }
 
     @Override
-    public void process() {
-        view.write("Enter first name: ");
-        String firstName = InputValueValidator.validateString(view);
-        view.write("Enter last name: ");
-        String lastName = InputValueValidator.validateString(view);
-        view.write("Enter email: ");
-        String email = InputValueValidator.validateEmail(view);
-
-        User user = new User();
-        user.setFirstName(firstName);
-        user.setLastName(lastName);
-        user.setEmail(email);
-        user.setUserRole(UserRole.NEWCOMER);
-        user.setStatus(UserStatus.ACTIVE);
-        System.out.println("Do you want to add Course to user record? type 'yes' or 'no': ");
-        switch (view.read()) {
-            case "yes":
-                System.out.println("Enter course title: ");
-                Course course = InputValueValidator.validateCourse(view);
-                user.setCourse(course);
-            break;
-            case "no": break;
-            default:
-                System.out.println("Incorrect input");
-                process (); break;
-        }
-
-
-
+    public void process(InputString input) {
+        input.validateParameters(command());
+        User user = Users.mapUser(input);
         userDAO.create(user);
-        view.write(String.format("User created: u%s", user.toString() ));
+        view.write(String.format("User created: %s", user.toString() ));
     }
 }
