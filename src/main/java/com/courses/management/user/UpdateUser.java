@@ -4,6 +4,7 @@ import com.courses.management.common.Command;
 import com.courses.management.common.DataAccessObject;
 import com.courses.management.common.InputValueValidator;
 import com.courses.management.common.View;
+import com.courses.management.common.commands.utils.InputString;
 import com.courses.management.course.Course;
 import com.courses.management.course.CourseStatus;
 
@@ -23,7 +24,7 @@ public class UpdateUser implements Command {
     }
 
     @Override
-    public void process() {
+    public void process(InputString input) {
         view.write("Enter user email");
         String email = InputValueValidator.validateString(view);
         try {
@@ -70,7 +71,7 @@ public class UpdateUser implements Command {
                     break;
                 default:
                     System.out.println("Invalid command. Try again");
-                    process();
+                   // process();
                     break;
             }
             userDAO.update(user);

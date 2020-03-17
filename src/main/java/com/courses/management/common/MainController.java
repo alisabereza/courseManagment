@@ -7,6 +7,7 @@ import com.courses.management.course.*;
 import com.courses.management.user.CreateUser;
 import com.courses.management.user.CreateUserWithCourse;
 import com.courses.management.user.UpdateUser;
+import com.courses.management.user.UpdateUserFirstName;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -34,6 +35,7 @@ public class MainController {
                 new CreateUser(view),
                 new CreateUserWithCourse(view),
                 new UpdateUser(view),
+                new UpdateUserFirstName(view),
                 new UpdateCourseTitle(view),
                 new UpdateCourseStatus(view)
         );

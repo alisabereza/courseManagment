@@ -426,3 +426,418 @@ org.postgresql.util.PSQLException: Запрос не вернул результ
 	at com.courses.management.common.MainController.read(MainController.java:42) [main/:?]
 	at com.courses.management.Main.main(Main.java:11) [main/:?]
 2020-03-14 12:41:37 DEBUG MainController:47 - doCommand: input=exit
+2020-03-14 16:14:24 DEBUG MainController:48 - doCommand: input=help
+2020-03-14 16:15:21 DEBUG MainController:48 - doCommand: input=create_course|C#
+2020-03-14 16:15:21 DEBUG CourseDAOImpl:98 - get: course.title=C#
+2020-03-14 16:15:21 WARN  MainController:57 - doCommand. WARN Course with title C# already exists
+java.lang.IllegalArgumentException: Course with title C# already exists
+	at com.courses.management.course.CreateCourse.validateTitle(CreateCourse.java:33) ~[main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:25) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:53) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-14 16:17:08 DEBUG MainController:48 - doCommand: input=create_course|C#
+2020-03-14 16:17:08 DEBUG CourseDAOImpl:98 - get: course.title=C#
+2020-03-14 16:17:08 DEBUG CourseDAOImpl:31 - create: course.title=C#
+2020-03-14 16:17:23 DEBUG MainController:48 - doCommand: input=help
+2020-03-14 16:17:40 DEBUG MainController:48 - doCommand: input=find_course|title
+2020-03-14 16:17:40 DEBUG CourseDAOImpl:98 - get: course.title=title
+2020-03-14 16:18:02 DEBUG MainController:48 - doCommand: input=find_course|C#
+2020-03-14 16:18:02 DEBUG CourseDAOImpl:98 - get: course.title=C#
+2020-03-14 16:47:52 DEBUG MainController:48 - doCommand: input=create_course|JAVA
+2020-03-14 16:47:52 DEBUG CourseDAOImpl:98 - get: course.title=JAVA
+2020-03-14 16:47:52 DEBUG CourseDAOImpl:31 - create: course.title=JAVA
+2020-03-14 16:47:52 ERROR CourseDAOImpl:39 - create: course.title=JAVA
+org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "course_title_key"
+  Подробности: Key (title)=(JAVA) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2440) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2183) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:308) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:441) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:365) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:143) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.execute(PgPreparedStatement.java:132) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44) ~[HikariCP-3.4.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.course.CourseDAOImpl.create(CourseDAOImpl.java:37) [main/:?]
+	at com.courses.management.course.CourseDAOImpl.create(CourseDAOImpl.java:15) [main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:26) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:53) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-14 16:49:09 DEBUG MainController:48 - doCommand: input=create_course|JAVA
+2020-03-14 16:49:09 DEBUG CourseDAOImpl:98 - get: course.title=JAVA
+2020-03-14 16:49:09 WARN  MainController:57 - doCommand. WARN Course with title JAVA already exists
+java.lang.IllegalArgumentException: Course with title JAVA already exists
+	at com.courses.management.course.CreateCourse.validateTitle(CreateCourse.java:33) ~[main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:25) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:53) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-14 16:49:23 DEBUG MainController:48 - doCommand: input=create_course|C#
+2020-03-14 16:49:23 DEBUG CourseDAOImpl:98 - get: course.title=C#
+2020-03-14 16:49:23 WARN  MainController:57 - doCommand. WARN Course with title C# already exists
+java.lang.IllegalArgumentException: Course with title C# already exists
+	at com.courses.management.course.CreateCourse.validateTitle(CreateCourse.java:33) ~[main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:25) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:53) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-14 16:49:41 DEBUG MainController:48 - doCommand: input=create_course|Pascal
+2020-03-14 16:49:41 DEBUG CourseDAOImpl:98 - get: course.title=Pascal
+2020-03-14 16:49:41 WARN  MainController:57 - doCommand. WARN Course with title Pascal already exists
+java.lang.IllegalArgumentException: Course with title Pascal already exists
+	at com.courses.management.course.CreateCourse.validateTitle(CreateCourse.java:33) ~[main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:25) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:53) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-14 16:55:08 DEBUG MainController:48 - doCommand: input=create_course
+2020-03-14 16:55:08 ERROR InputString:20 - Invalid number of parameters separated by |, expected 1, but was 2
+2020-03-14 16:55:08 WARN  MainController:57 - doCommand. WARN Invalid number of parameters separated by |, expected 1, but was 2
+java.lang.IllegalArgumentException: Invalid number of parameters separated by |, expected 1, but was 2
+	at com.courses.management.common.commands.utils.InputString.validateParameters(InputString.java:21) ~[main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:23) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:53) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-14 16:55:21 DEBUG MainController:48 - doCommand: input=create_course|new
+2020-03-14 16:55:21 DEBUG CourseDAOImpl:98 - get: course.title=new
+2020-03-14 16:55:21 WARN  MainController:57 - doCommand. WARN Course with title new already exists
+java.lang.IllegalArgumentException: Course with title new already exists
+	at com.courses.management.course.CreateCourse.validateTitle(CreateCourse.java:33) ~[main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:25) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:53) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-14 16:56:58 DEBUG MainController:48 - doCommand: input=create_course|new
+2020-03-14 16:56:58 DEBUG CourseDAOImpl:98 - get: course.title=new
+2020-03-14 16:56:58 WARN  MainController:57 - doCommand. WARN Course with title new already exists
+java.lang.IllegalArgumentException: Course with title new already exists
+	at com.courses.management.course.CreateCourse.validateTitle(CreateCourse.java:34) ~[main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:25) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:53) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-14 16:58:00 DEBUG MainController:48 - doCommand: input=create_course
+2020-03-14 16:58:00 ERROR InputString:20 - Invalid number of parameters separated by |, expected 1, but was 2
+2020-03-14 16:58:00 WARN  MainController:57 - doCommand. WARN Invalid number of parameters separated by |, expected 1, but was 2
+java.lang.IllegalArgumentException: Invalid number of parameters separated by |, expected 1, but was 2
+	at com.courses.management.common.commands.utils.InputString.validateParameters(InputString.java:21) ~[main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:23) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:53) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-14 16:58:09 DEBUG MainController:48 - doCommand: input=create_course|Pascal
+2020-03-14 16:58:09 DEBUG CourseDAOImpl:98 - get: course.title=Pascal
+2020-03-14 16:58:09 DEBUG CourseDAOImpl:31 - create: course.title=Pascal
+2020-03-14 17:06:24 DEBUG MainController:48 - doCommand: input=update_course|JAVA|JAVA11
+2020-03-14 17:06:36 WARN  MainController:57 - doCommand. WARN No line found
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1651) ~[?:?]
+	at com.courses.management.common.Console.read(Console.java:9) ~[main/:?]
+	at com.courses.management.common.InputValueValidator.validateString(InputValueValidator.java:17) ~[main/:?]
+	at com.courses.management.course.UpdateCourse.process(UpdateCourse.java:25) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:53) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-14 17:07:18 DEBUG MainController:49 - doCommand: input=update_course_title|JAVA|JAVA11
+2020-03-14 17:07:18 DEBUG CourseDAOImpl:98 - get: course.title=JAVA
+2020-03-14 17:07:18 DEBUG CourseDAOImpl:98 - get: course.title=JAVA11
+2020-03-14 17:07:18 DEBUG CourseDAOImpl:45 - update: course.title=JAVA11
+2020-03-14 17:11:13 DEBUG MainController:49 - doCommand: input=update_course_title|JAVA11|JAVA14
+2020-03-14 17:11:13 DEBUG CourseDAOImpl:98 - get: course.title=JAVA11
+2020-03-14 17:11:13 DEBUG CourseDAOImpl:98 - get: course.title=JAVA14
+2020-03-14 17:11:13 DEBUG CourseDAOImpl:45 - update: course.title=JAVA14
+2020-03-14 21:32:37 DEBUG MainController:50 - doCommand: input=update_course_status|C#|IN_PROGRESS
+2020-03-14 21:32:37 DEBUG CourseDAOImpl:98 - get: course.title=C#
+2020-03-14 21:32:37 DEBUG CourseDAOImpl:45 - update: course.title=C#
+2020-03-14 21:54:51 DEBUG MainController:49 - doCommand: input=delete_course|Pascal
+2020-03-14 21:54:51 DEBUG CourseDAOImpl:98 - get: course.title=Pascal
+2020-03-14 21:54:51 DEBUG CourseDAOImpl:45 - update: course.title=Pascal
+2020-03-15 11:25:37 DEBUG MainController:49 - doCommand: input=show_courses
+2020-03-15 11:25:37 DEBUG CourseDAOImpl:121 - get All courses
+2020-03-15 11:42:18 DEBUG MainController:50 - doCommand: input=show_courses_by_status|DELETED
+2020-03-15 11:42:18 DEBUG CourseDAOImpl:146 - get All by status: course.status=DELETED
+2020-03-15 11:42:35 DEBUG MainController:50 - doCommand: input=show_courses_by_status|NOT_STARTED
+2020-03-15 11:42:35 DEBUG CourseDAOImpl:146 - get All by status: course.status=NOT_STARTED
+2020-03-15 12:44:18 DEBUG MainController:50 - doCommand: input=create_user|Iryna|Malysheva|iryna.malysheva@pxl.com
+2020-03-15 12:44:18 DEBUG UserDAOImpl:86 - check email=Malysheva
+2020-03-15 12:44:18 DEBUG CourseDAOImpl:98 - get: course.title=iryna.malysheva@pxl.com
+2020-03-15 12:44:18 DEBUG UserDAOImpl:29 - create: user: User Name: create_user; Last Name: Iryna; Email: Malysheva; Role: NEWCOMER; Status: ACTIVE; Course: 
+2020-03-15 12:46:47 DEBUG MainController:50 - doCommand: input=create_user|Iryna|Malysheva|iryna.alysheva@pxl.com
+2020-03-15 12:46:47 DEBUG UserDAOImpl:86 - check email=iryna.alysheva@pxl.com
+2020-03-15 12:46:47 WARN  MainController:59 - doCommand. WARN null
+java.lang.NullPointerException: null
+	at com.courses.management.user.User.toString(User.java:83) ~[main/:?]
+	at com.courses.management.user.UserDAOImpl.create(UserDAOImpl.java:29) ~[main/:?]
+	at com.courses.management.user.UserDAOImpl.create(UserDAOImpl.java:17) ~[main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:31) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:55) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:45) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-15 12:52:52 DEBUG MainController:50 - doCommand: input=create_user|Iryna|Malysheva|i.malysheva@pxl.com
+2020-03-15 12:52:53 DEBUG UserDAOImpl:86 - check email=i.malysheva@pxl.com
+2020-03-15 12:52:53 WARN  MainController:59 - doCommand. WARN null
+java.lang.NullPointerException: null
+	at com.courses.management.user.User.toString(User.java:83) ~[main/:?]
+	at com.courses.management.user.UserDAOImpl.create(UserDAOImpl.java:29) ~[main/:?]
+	at com.courses.management.user.UserDAOImpl.create(UserDAOImpl.java:17) ~[main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:31) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:55) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:45) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-15 12:54:30 DEBUG MainController:50 - doCommand: input=create_user|Ira|Malysheva|i.malysheva@pxl.com
+2020-03-15 12:54:30 DEBUG UserDAOImpl:86 - check email=i.malysheva@pxl.com
+2020-03-15 12:54:30 WARN  MainController:59 - doCommand. WARN null
+java.lang.NullPointerException: null
+	at com.courses.management.user.User.toString(User.java:83) ~[main/:?]
+	at java.lang.String.valueOf(String.java:2951) ~[?:?]
+	at java.io.PrintStream.println(PrintStream.java:897) ~[?:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:30) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:55) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:45) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-15 12:55:51 DEBUG MainController:50 - doCommand: input=create_user|Ira|M|im@pxl.com
+2020-03-15 12:55:51 DEBUG UserDAOImpl:86 - check email=im@pxl.com
+2020-03-15 12:55:51 WARN  MainController:59 - doCommand. WARN null
+java.lang.NullPointerException: null
+	at com.courses.management.user.User.toString(User.java:83) ~[main/:?]
+	at java.lang.String.valueOf(String.java:2951) ~[?:?]
+	at java.io.PrintStream.println(PrintStream.java:897) ~[?:?]
+	at com.courses.management.user.Users.mapUser(Users.java:18) ~[main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:29) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:55) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:45) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-15 12:56:54 DEBUG MainController:50 - doCommand: input=create_user|I|Malysheva|im@pxl.com
+2020-03-15 13:05:37 DEBUG MainController:50 - doCommand: input=create_user|Ira|Manula|im@pxl.com
+2020-03-15 13:06:26 DEBUG UserDAOImpl:86 - check email=im@pxl.com
+2020-03-15 13:06:52 DEBUG UserDAOImpl:29 - create: user: User Name: Ira; Last Name: Manula; Email: im@pxl.com
+2020-03-15 13:07:20 WARN  MainController:59 - doCommand. WARN null
+java.lang.NullPointerException: null
+	at com.courses.management.user.UserDAOImpl.create(UserDAOImpl.java:30) ~[main/:?]
+	at com.courses.management.user.UserDAOImpl.create(UserDAOImpl.java:17) ~[main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:31) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:55) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:45) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-15 13:10:15 DEBUG MainController:50 - doCommand: input=create_user|Ira|Malysheva|im@pxl.int
+2020-03-15 13:10:15 DEBUG UserDAOImpl:86 - check email=im@pxl.int
+2020-03-15 13:10:15 DEBUG UserDAOImpl:29 - create: user: User Name: Ira; Last Name: Malysheva; Email: im@pxl.int
+2020-03-15 13:10:15 WARN  MainController:59 - doCommand. WARN null
+java.lang.NullPointerException: null
+	at com.courses.management.user.UserDAOImpl.create(UserDAOImpl.java:30) ~[main/:?]
+	at com.courses.management.user.UserDAOImpl.create(UserDAOImpl.java:17) ~[main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:30) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:55) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:45) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-15 13:10:59 DEBUG MainController:50 - doCommand: input=create_user|Ira|Mogyla|im@pxl.int
+2020-03-15 13:11:08 DEBUG UserDAOImpl:86 - check email=im@pxl.int
+2020-03-15 13:11:48 DEBUG UserDAOImpl:29 - create: user: User Name: Ira; Last Name: Mogyla; Email: im@pxl.int
+2020-03-15 13:13:42 DEBUG MainController:50 - doCommand: input=create_user|Iryna|Malysheva|im@pxl.com|Pascal
+2020-03-15 13:13:42 DEBUG UserDAOImpl:86 - check email=im@pxl.com
+2020-03-15 13:13:42 DEBUG UserDAOImpl:29 - create: user: User Name: Iryna; Last Name: Malysheva; Email: im@pxl.com
+2020-03-15 13:13:42 WARN  MainController:59 - doCommand. WARN null
+java.lang.NullPointerException: null
+	at com.courses.management.user.UserDAOImpl.create(UserDAOImpl.java:30) ~[main/:?]
+	at com.courses.management.user.UserDAOImpl.create(UserDAOImpl.java:17) ~[main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:30) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:55) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:45) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-15 13:15:39 DEBUG MainController:50 - doCommand: input=create_user|Ira|Malysheva|im@pxl.com|JS
+2020-03-15 13:15:51 DEBUG UserDAOImpl:86 - check email=im@pxl.com
+2020-03-15 13:16:12 DEBUG UserDAOImpl:29 - create: user: User Name: Ira; Last Name: Malysheva; Email: im@pxl.com
+2020-03-15 13:16:32 WARN  MainController:59 - doCommand. WARN null
+java.lang.NullPointerException: null
+	at com.courses.management.user.UserDAOImpl.create(UserDAOImpl.java:30) ~[main/:?]
+	at com.courses.management.user.UserDAOImpl.create(UserDAOImpl.java:17) ~[main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:30) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:55) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:45) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-15 13:17:28 DEBUG MainController:50 - doCommand: input=create_user|i|h|fd@df|JS
+2020-03-15 13:17:35 DEBUG UserDAOImpl:86 - check email=fd@df
+2020-03-15 13:18:01 DEBUG UserDAOImpl:29 - create: user: User Name: i; Last Name: h; Email: fd@df
+2020-03-15 13:19:40 DEBUG MainController:50 - doCommand: input=create_user|q|w|we@qw|JS
+2020-03-15 13:19:40 DEBUG UserDAOImpl:86 - check email=we@qw
+2020-03-15 13:19:40 WARN  MainController:59 - doCommand. WARN null
+java.lang.NullPointerException: null
+	at com.courses.management.user.User.toString(User.java:82) ~[main/:?]
+	at java.lang.String.valueOf(String.java:2951) ~[?:?]
+	at java.io.PrintStream.println(PrintStream.java:897) ~[?:?]
+	at com.courses.management.user.Users.mapUser(Users.java:18) ~[main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:29) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:55) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:45) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-15 13:20:13 DEBUG MainController:50 - doCommand: input=create_user|as|as|as@as|JS
+2020-03-15 13:20:17 DEBUG UserDAOImpl:86 - check email=as@as
+2020-03-15 13:21:44 DEBUG MainController:50 - doCommand: input=create_user|ira|re\qw@qw|JS
+2020-03-15 13:21:44 ERROR InputString:20 - Invalid number of parameters separated by |, expected 4, but was 5
+2020-03-15 13:21:44 WARN  MainController:59 - doCommand. WARN Invalid number of parameters separated by |, expected 4, but was 5
+java.lang.IllegalArgumentException: Invalid number of parameters separated by |, expected 4, but was 5
+	at com.courses.management.common.commands.utils.InputString.validateParameters(InputString.java:21) ~[main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:28) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:55) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:45) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-15 13:23:17 DEBUG MainController:50 - doCommand: input=create_user|as\as\as@as\JS
+2020-03-15 13:23:17 ERROR InputString:20 - Invalid number of parameters separated by |, expected 2, but was 5
+2020-03-15 13:23:17 WARN  MainController:59 - doCommand. WARN Invalid number of parameters separated by |, expected 2, but was 5
+java.lang.IllegalArgumentException: Invalid number of parameters separated by |, expected 2, but was 5
+	at com.courses.management.common.commands.utils.InputString.validateParameters(InputString.java:21) ~[main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:28) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:55) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:45) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-15 13:24:32 DEBUG MainController:50 - doCommand: input=create_user|Iryna|Malysheva|im@pxl@int|JS
+2020-03-15 13:24:32 DEBUG UserDAOImpl:86 - check email=im@pxl@int
+2020-03-15 13:24:32 DEBUG CourseDAOImpl:98 - get: course.title=JS
+2020-03-15 13:24:32 DEBUG UserDAOImpl:29 - create: user: User Name: Iryna; Last Name: Malysheva; Email: im@pxl@int
+2020-03-15 13:32:33 DEBUG MainController:50 - doCommand: input=create_user|Ivan|Pop|ip@mail.ru|
+2020-03-15 13:32:33 ERROR InputString:20 - Invalid number of parameters separated by |, expected 4, but was 5
+2020-03-15 13:32:33 WARN  MainController:59 - doCommand. WARN Invalid number of parameters separated by |, expected 4, but was 5
+java.lang.IllegalArgumentException: Invalid number of parameters separated by |, expected 4, but was 5
+	at com.courses.management.common.commands.utils.InputString.validateParameters(InputString.java:21) ~[main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:28) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:55) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:45) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-15 13:33:09 DEBUG MainController:50 - doCommand: input=create_user|Ivan|Pop|ip@mail.ru|Mamba
+2020-03-15 13:33:09 DEBUG UserDAOImpl:86 - check email=ip@mail.ru
+2020-03-15 13:33:09 DEBUG CourseDAOImpl:98 - get: course.title=Mamba
+2020-03-15 13:33:09 DEBUG UserDAOImpl:29 - create: user: User Name: Ivan; Last Name: Pop; Email: ip@mail.ru
+2020-03-15 13:53:33 DEBUG MainController:52 - doCommand: input=create_user|Sonya|Vyshgorodovna|sv@pxl.com|Phyton
+2020-03-15 13:53:33 ERROR InputString:20 - Invalid number of parameters separated by |, expected 5, but was 4
+2020-03-15 13:53:33 WARN  MainController:61 - doCommand. WARN Invalid number of parameters separated by |, expected 5, but was 4
+java.lang.IllegalArgumentException: Invalid number of parameters separated by |, expected 5, but was 4
+	at com.courses.management.common.commands.utils.InputString.validateParameters(InputString.java:21) ~[main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:25) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:57) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:47) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-15 13:54:09 DEBUG MainController:52 - doCommand: input=create_user|Sonya|Vyshgorodovna|sv@pxl.com
+2020-03-15 13:54:09 DEBUG UserDAOImpl:86 - check email=sv@pxl.com
+2020-03-15 13:54:09 WARN  MainController:61 - doCommand. WARN null
+java.lang.NullPointerException: null
+	at com.courses.management.user.Users.mapUser(Users.java:27) ~[main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:26) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:57) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:47) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-15 13:55:15 DEBUG MainController:52 - doCommand: input=create_user_course|Sonya|Vyshgorodovna|SV@pxl.com|Phyton
+2020-03-15 13:55:15 DEBUG UserDAOImpl:86 - check email=SV@pxl.com
+2020-03-15 13:55:15 DEBUG CourseDAOImpl:98 - get: course.title=Phyton
+2020-03-15 13:55:15 DEBUG UserDAOImpl:29 - create: user: User Name: Sonya; Last Name: Vyshgorodovna; Email: SV@pxl.com
+2020-03-15 13:57:08 DEBUG MainController:52 - doCommand: input=
+2020-03-15 13:57:23 DEBUG MainController:52 - doCommand: input=create_user_course|David|Macdavid|dm@pxl.com|PHYTON
+2020-03-15 13:57:23 DEBUG UserDAOImpl:86 - check email=dm@pxl.com
+2020-03-15 13:57:23 DEBUG CourseDAOImpl:98 - get: course.title=PHYTON
+2020-03-15 13:57:23 DEBUG UserDAOImpl:29 - create: user: User Name: David; Last Name: Macdavid; Email: dm@pxl.com
+2020-03-15 13:58:06 DEBUG MainController:52 - doCommand: input=
+2020-03-15 13:58:21 DEBUG MainController:52 - doCommand: input=
+2020-03-15 13:58:24 DEBUG MainController:52 - doCommand: input=create_user_course|David|Macdavid|dm@pxl.com|JS
+2020-03-15 13:58:24 DEBUG UserDAOImpl:86 - check email=dm@pxl.com
+2020-03-15 13:58:24 WARN  MainController:61 - doCommand. WARN The email dm@pxl.com already exists in Database
+java.lang.IllegalArgumentException: The email dm@pxl.com already exists in Database
+	at com.courses.management.user.Users.validateEmail(Users.java:39) ~[main/:?]
+	at com.courses.management.user.Users.mapUser(Users.java:15) ~[main/:?]
+	at com.courses.management.user.CreateUserWithCourse.process(CreateUserWithCourse.java:26) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:57) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:47) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-15 13:58:34 DEBUG MainController:52 - doCommand: input=create_user_course|David|Macdavid|davm@pxl.com|JS
+2020-03-15 13:58:34 DEBUG UserDAOImpl:86 - check email=davm@pxl.com
+2020-03-15 13:58:34 DEBUG CourseDAOImpl:98 - get: course.title=JS
+2020-03-15 13:58:34 DEBUG UserDAOImpl:29 - create: user: User Name: David; Last Name: Macdavid; Email: davm@pxl.com
+2020-03-15 13:59:12 DEBUG MainController:52 - doCommand: input=create_user|David|Macdavid|dimasikm@pxl.com
+2020-03-15 13:59:12 DEBUG UserDAOImpl:86 - check email=dimasikm@pxl.com
+2020-03-15 13:59:12 WARN  MainController:61 - doCommand. WARN null
+java.lang.NullPointerException: null
+	at com.courses.management.user.Users.mapUser(Users.java:27) ~[main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:26) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:57) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:47) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-15 14:00:40 DEBUG MainController:52 - doCommand: input=create_user|David|Macdavid|dima@pxl.com
+2020-03-15 14:00:48 DEBUG UserDAOImpl:86 - check email=dima@pxl.com
+2020-03-15 14:02:10 DEBUG MainController:52 - doCommand: input=create_user|David|Macdavid|dem@pxl.com
+2020-03-15 14:02:10 DEBUG UserDAOImpl:86 - check email=dem@pxl.com
+2020-03-15 14:02:10 DEBUG UserDAOImpl:29 - create: user: User Name: David; Last Name: Macdavid; Email: dem@pxl.com
+2020-03-15 14:02:10 WARN  MainController:61 - doCommand. WARN null
+java.lang.NullPointerException: null
+	at com.courses.management.user.UserDAOImpl.create(UserDAOImpl.java:30) ~[main/:?]
+	at com.courses.management.user.UserDAOImpl.create(UserDAOImpl.java:17) ~[main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:27) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:57) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:47) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-15 14:04:14 DEBUG MainController:52 - doCommand: input=create_user|Shishka|Mashishka|shmsh@mail.ru
+2020-03-15 14:04:48 DEBUG UserDAOImpl:86 - check email=shmsh@mail.ru
+2020-03-15 14:05:32 DEBUG UserDAOImpl:29 - create: user: User Name: Shishka; Last Name: Mashishka; Email: shmsh@mail.ru
+2020-03-15 14:09:27 DEBUG MainController:52 - doCommand: input=create_user|Shishka|Mashishka|shmsh@mail.ru
+2020-03-15 14:09:27 DEBUG UserDAOImpl:87 - check email=shmsh@mail.ru
+2020-03-15 14:09:27 DEBUG UserDAOImpl:29 - create: user: User Name: Shishka; Last Name: Mashishka; Email: shmsh@mail.ru
+2020-03-15 14:09:27 WARN  MainController:61 - doCommand. WARN null
+java.lang.NullPointerException: null
+	at com.courses.management.user.UserDAOImpl.create(UserDAOImpl.java:30) ~[main/:?]
+	at com.courses.management.user.UserDAOImpl.create(UserDAOImpl.java:17) ~[main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:27) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:57) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:47) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-15 14:12:08 DEBUG MainController:52 - doCommand: input=create_user|Shishka|Mashishka|shmsh@mail.ru
+2020-03-15 14:12:08 DEBUG UserDAOImpl:87 - check email=shmsh@mail.ru
+2020-03-15 14:12:08 DEBUG UserDAOImpl:29 - create: user: User Name: Shishka; Last Name: Mashishka; Email: shmsh@mail.ru
+2020-03-15 14:12:08 WARN  MainController:61 - doCommand. WARN null
+java.lang.NullPointerException: null
+	at com.courses.management.user.UserDAOImpl.create(UserDAOImpl.java:30) ~[main/:?]
+	at com.courses.management.user.UserDAOImpl.create(UserDAOImpl.java:17) ~[main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:27) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:57) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:47) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-15 14:12:55 DEBUG MainController:52 - doCommand: input=create_user_course|Shishka|Mashishka|shmsh@mail.ru|MAMBA
+2020-03-15 14:12:55 DEBUG UserDAOImpl:87 - check email=shmsh@mail.ru
+2020-03-15 14:12:55 DEBUG CourseDAOImpl:98 - get: course.title=MAMBA
+2020-03-15 14:12:55 DEBUG UserDAOImpl:29 - create: user: User Name: Shishka; Last Name: Mashishka; Email: shmsh@mail.ru
+2020-03-15 16:49:51 DEBUG MainController:52 - doCommand: input=create_user|Masha|Cheburashka|m.cheburashka@gmail.com
+2020-03-15 16:49:51 DEBUG UserDAOImpl:88 - check email=m.cheburashka@gmail.com
+2020-03-15 16:49:51 DEBUG UserDAOImpl:29 - create: user: User Name: Masha; Last Name: Cheburashka; Email: m.cheburashka@gmail.com
+2020-03-15 17:12:12 DEBUG MainController:52 - doCommand: input=create_user|Kisa|Vorobyaninov|kisa@ukr.net
+2020-03-15 17:12:12 DEBUG UserDAOImpl:87 - check email=kisa@ukr.net
+2020-03-15 17:12:12 DEBUG UserDAOImpl:29 - create: user: User Name: Kisa; Last Name: Vorobyaninov; Email: kisa@ukr.net; Role: NEWCOMER; Status: ACTIVE; Course: 
+2020-03-15 17:13:12 DEBUG MainController:52 - doCommand: input=create_user_course|Nadiya|Bogataya|Nadya.Bog@ukr.net|Paskal
+2020-03-15 17:13:12 DEBUG UserDAOImpl:87 - check email=Nadya.Bog@ukr.net
+2020-03-15 17:13:12 DEBUG CourseDAOImpl:98 - get: course.title=Paskal
+2020-03-15 17:13:12 DEBUG UserDAOImpl:29 - create: user: User Name: Nadiya; Last Name: Bogataya; Email: Nadya.Bog@ukr.net; Role: NEWCOMER; Status: ACTIVE; Course: null
+2020-03-15 17:22:31 DEBUG MainController:52 - doCommand: input=create_user_course|Ivan|Velikoivan|ivan.ivan@ukr.net|Paskal
+2020-03-15 17:22:31 DEBUG UserDAOImpl:86 - check email=ivan.ivan@ukr.net
+2020-03-15 17:22:31 DEBUG CourseDAOImpl:98 - get: course.title=Paskal
+2020-03-15 17:22:31 DEBUG UserDAOImpl:29 - create: user: User Name: Ivan; Last Name: Velikoivan; Email: ivan.ivan@ukr.net; Role: NEWCOMER; Status: ACTIVE; Course: null
+2020-03-15 17:24:13 DEBUG MainController:52 - doCommand: input=create_user_course|Ivan|Vivan|ivan.vivan@ukr.net|Paskal
+2020-03-15 17:24:13 DEBUG UserDAOImpl:86 - check email=ivan.vivan@ukr.net
+2020-03-15 17:24:13 DEBUG CourseDAOImpl:98 - get: course.title=Paskal
+2020-03-15 17:24:13 DEBUG UserDAOImpl:29 - create: user: User Name: Ivan; Last Name: Vivan; Email: ivan.vivan@ukr.net; Role: NEWCOMER; Status: ACTIVE; Course: null
+2020-03-15 17:26:05 DEBUG MainController:52 - doCommand: input=create_user_course|Zina|Viktorina|zina.victorina@ukr.net|Paskal
+2020-03-15 17:26:05 DEBUG UserDAOImpl:86 - check email=zina.victorina@ukr.net
+2020-03-15 17:26:05 DEBUG CourseDAOImpl:98 - get: course.title=Paskal
+2020-03-15 17:26:05 DEBUG UserDAOImpl:29 - create: user: User Name: Zina; Last Name: Viktorina; Email: zina.victorina@ukr.net; Role: NEWCOMER; Status: ACTIVE; Course: null
+2020-03-17 15:26:31 DEBUG MainController:54 - doCommand: input=update_user_first_name|ip@mail.ru|Igor
+2020-03-17 15:26:31 DEBUG UserDAOImpl:86 - check email=ip@mail.ru
+2020-03-17 15:26:31 DEBUG UserDAOImpl:105 - find user by email: ip@mail.ru
+2020-03-17 15:26:31 DEBUG CourseDAOImpl:74 - get: course.id=0
+2020-03-17 15:26:31 DEBUG UserDAOImpl:49 - update user: User Name: Igor; Last Name: Pop; Email: ip@mail.ru; Role: NEWCOMER; Status: ACTIVE; Course: null
+2020-03-17 15:26:31 ERROR UserDAOImpl:65 - update user: User Name: Igor; Last Name: Pop; Email: ip@mail.ru; Role: NEWCOMER; Status: ACTIVE; Course: null
+org.postgresql.util.PSQLException: Запрос не вернул результатов.
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:107) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-3.4.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.user.UserDAOImpl.update(UserDAOImpl.java:62) [main/:?]
+	at com.courses.management.user.UpdateUserFirstName.process(UpdateUserFirstName.java:28) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:59) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:49) [main/:?]
+	at com.courses.management.Main.main(Main.java:11) [main/:?]

@@ -61,6 +61,10 @@ public class Help implements Command {
         view.write("\t|\t-> create new user (with course assigned)");
         view.write("---------------------------------------------------------");
 
+        view.write("\t| update_user_first_name|user_email|new_first_name");
+        view.write("\t|\t-> find user by email and update first name");
+        view.write("---------------------------------------------------------");
+
         view.write("\t| exit");
         view.write("\t|\t-> exit application");
         view.write("---------------------------------------------------------");

@@ -79,7 +79,6 @@ public class User extends BaseEntity {
     @Override
     public String toString() {
         return "User Name: " + this.getFirstName() + "; Last Name: " + this.getLastName() +
-                "; Email: " + this.getEmail() + "; Role: " + this.getUserRole() + "; Status: " + this.getStatus() +
-                "; Course: " + Optional.ofNullable(this.getCourse().getTitle()).orElse("") ;
+                "; Email: "+ this.getEmail() + "; Role: " + this.getUserRole() + "; Status: " + this.getStatus() + "; Course: " + ((this.getCourse()!=null)?this.getCourse().getTitle():"");
     }
 }

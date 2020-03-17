@@ -26,8 +26,8 @@ public class UserDAOImpl implements DataAccessObject<User> {
 
     @Override
     public void create(User user) {
-        LOG.debug(String.format("create: user: %s", user.toString()));
-        Optional<String> optionalCourse = Optional.ofNullable(user.getCourse().getTitle());
+        LOG.debug(String.format("create: user: %s", user));
+        String courseTitle =  (user.getCourse()!=null)?user.getCourse().getTitle():"";
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(INSERT)) {
             statement.setString(1, user.getFirstName());
@@ -35,7 +35,7 @@ public class UserDAOImpl implements DataAccessObject<User> {
             statement.setString(3, user.getEmail());
             statement.setString(4, user.getUserRole().getRole());
             statement.setString(5, user.getStatus().getStatus());
-            statement.setString(6, optionalCourse.orElse(""));
+            statement.setString(6, courseTitle);
             statement.execute();
         } catch (SQLException e) {
             LOG.error(String.format("create: user: %s", user.toString()), e);
