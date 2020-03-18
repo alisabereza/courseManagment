@@ -18,4 +18,15 @@ public class Courses {
         view.write(String.format("\t title = %s", course.getTitle()));
         view.write(String.format("\t status = %s", course.getCourseStatus()));
     }
+
+    public static int validateID(View view) {
+        String value = view.read();
+        while (!value.matches("[0-9]*")) {
+            System.out.println("Please enter correct value (number)");
+            value = view.read();
+        }
+        return Integer.parseInt(value);
+    }
+
+
 }

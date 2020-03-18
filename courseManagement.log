@@ -841,3 +841,201 @@ org.postgresql.util.PSQLException: Запрос не вернул результ
 	at com.courses.management.common.MainController.doCommand(MainController.java:59) [main/:?]
 	at com.courses.management.common.MainController.read(MainController.java:49) [main/:?]
 	at com.courses.management.Main.main(Main.java:11) [main/:?]
+2020-03-18 14:12:11 DEBUG MainController:47 - doCommand: input=help
+2020-03-18 14:12:42 DEBUG MainController:47 - doCommand: input=create_course|Testing
+2020-03-18 14:12:42 DEBUG CourseDAOImpl:105 - get: course.title=Testing
+2020-03-18 14:12:42 WARN  MainController:57 - doCommand. WARN Course with title Testing already exists
+java.lang.IllegalArgumentException: Course with title Testing already exists
+	at com.courses.management.course.CreateCourse.validateTitle(CreateCourse.java:33) ~[main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:25) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:53) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:42) [main/:?]
+	at com.courses.management.Main.main(Main.java:16) [main/:?]
+2020-03-18 14:15:06 DEBUG MainController:47 - doCommand: input=create_course|Testing
+2020-03-18 14:15:06 DEBUG CourseDAOImpl:105 - get: course.title=Testing
+2020-03-18 14:15:06 WARN  MainController:57 - doCommand. WARN Course with title Testing already exists
+java.lang.IllegalArgumentException: Course with title Testing already exists
+	at com.courses.management.course.CreateCourse.validateTitle(CreateCourse.java:34) ~[main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:25) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:53) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:42) [main/:?]
+	at com.courses.management.Main.main(Main.java:16) [main/:?]
+2020-03-18 14:18:47 DEBUG MainController:48 - doCommand: input=create_course|Testing
+2020-03-18 14:18:47 DEBUG CourseDAOImpl:105 - get: course.title=Testing
+2020-03-18 14:18:47 WARN  MainController:58 - doCommand. WARN Course with title Testing already exists
+java.lang.IllegalArgumentException: Course with title Testing already exists
+	at com.courses.management.course.CreateCourse.validateTitle(CreateCourse.java:34) ~[main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:25) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:54) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:16) [main/:?]
+2020-03-18 14:21:52 DEBUG MainController:48 - doCommand: input=create_course|Testing
+2020-03-18 14:21:52 DEBUG CourseDAOImpl:105 - get: course.title=Testing
+2020-03-18 14:21:52 WARN  MainController:59 - doCommand. WARN Course with title Testing already exists
+java.lang.IllegalArgumentException: Course with title Testing already exists
+	at com.courses.management.course.CreateCourse.validateTitle(CreateCourse.java:36) ~[main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:27) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:54) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:16) [main/:?]
+2020-03-18 14:24:26 DEBUG MainController:48 - doCommand: input=create_course|Testing
+2020-03-18 14:24:26 DEBUG CourseDAOImpl:105 - get: course.title=Testing
+2020-03-18 14:24:26 WARN  MainController:59 - doCommand. WARN Course with title Testing already exists
+java.lang.IllegalArgumentException: Course with title Testing already exists
+	at com.courses.management.course.CreateCourse.validateTitle(CreateCourse.java:36) ~[main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:27) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:54) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:16) [main/:?]
+2020-03-18 14:26:10 DEBUG MainController:48 - doCommand: input=create_course|Testing
+2020-03-18 14:26:10 DEBUG CourseDAOImpl:105 - get: course.title=Testing
+2020-03-18 14:26:10 ERROR CourseDAOImpl:122 - get: course.title=Testing
+org.postgresql.util.PSQLException: ResultSet not positioned properly, perhaps you need to call next.
+	at org.postgresql.jdbc.PgResultSet.checkResultSet(PgResultSet.java:2772) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:1894) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:2467) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.HikariProxyResultSet.getString(HikariProxyResultSet.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.course.CourseDAOImpl.get(CourseDAOImpl.java:111) [main/:?]
+	at com.courses.management.course.CreateCourse.validateTitle(CreateCourse.java:33) [main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:27) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:54) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:16) [main/:?]
+2020-03-18 14:26:10 WARN  MainController:59 - doCommand. WARN null
+java.lang.NullPointerException: null
+	at com.courses.management.course.CreateCourse.validateTitle(CreateCourse.java:34) ~[main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:27) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:54) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:16) [main/:?]
+2020-03-18 14:30:16 DEBUG MainController:48 - doCommand: input=create_course|Testing
+2020-03-18 14:30:16 DEBUG CourseDAOImpl:104 - get: course.title=Testing
+2020-03-18 14:30:16 ERROR CourseDAOImpl:121 - get: course.title=Testing
+org.postgresql.util.PSQLException: ResultSet not positioned properly, perhaps you need to call next.
+	at org.postgresql.jdbc.PgResultSet.checkResultSet(PgResultSet.java:2772) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:1894) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgResultSet.getString(PgResultSet.java:2467) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.HikariProxyResultSet.getString(HikariProxyResultSet.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.course.CourseDAOImpl.get(CourseDAOImpl.java:110) [main/:?]
+	at com.courses.management.course.CreateCourse.validateTitle(CreateCourse.java:33) [main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:27) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:54) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:16) [main/:?]
+2020-03-18 14:30:16 WARN  MainController:59 - doCommand. WARN null
+java.lang.NullPointerException: null
+	at com.courses.management.course.CreateCourse.validateTitle(CreateCourse.java:34) ~[main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:27) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:54) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:16) [main/:?]
+2020-03-18 14:31:35 DEBUG MainController:48 - doCommand: input=help
+2020-03-18 14:31:44 DEBUG MainController:48 - doCommand: input=show_courses
+2020-03-18 14:31:44 DEBUG CourseDAOImpl:128 - get All courses
+2020-03-18 14:35:24 DEBUG MainController:48 - doCommand: input=create_course|testing
+2020-03-18 14:35:24 DEBUG CourseDAOImpl:105 - get: course.title=testing
+2020-03-18 14:35:24 WARN  MainController:59 - doCommand. WARN Course with title testing already exists
+java.lang.IllegalArgumentException: Course with title testing already exists
+	at com.courses.management.course.CreateCourse.validateTitle(CreateCourse.java:36) ~[main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:27) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:54) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:16) [main/:?]
+2020-03-18 14:36:36 DEBUG MainController:48 - doCommand: input=create_course|Testing
+2020-03-18 14:36:36 DEBUG CourseDAOImpl:105 - get: course.title=Testing
+2020-03-18 14:36:36 DEBUG CourseDAOImpl:35 - create: course.title=Testing
+2020-03-18 14:38:48 DEBUG MainController:48 - doCommand: input=create_course|JAVA
+2020-03-18 14:38:48 DEBUG CourseDAOImpl:105 - get: course.title=JAVA
+2020-03-18 14:38:48 DEBUG CourseDAOImpl:35 - create: course.title=JAVA
+2020-03-18 14:39:24 DEBUG MainController:48 - doCommand: input=create_course|JAVA
+2020-03-18 14:39:24 DEBUG CourseDAOImpl:105 - get: course.title=JAVA
+2020-03-18 14:39:24 DEBUG CourseDAOImpl:35 - create: course.title=JAVA
+2020-03-18 14:39:24 ERROR CourseDAOImpl:43 - create: course.title=JAVA
+org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "course_title_key"
+  Подробности: Key (title)=(JAVA) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2440) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2183) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:308) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:441) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:365) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:143) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.execute(PgPreparedStatement.java:132) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44) ~[HikariCP-3.4.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.course.CourseDAOImpl.create(CourseDAOImpl.java:41) [main/:?]
+	at com.courses.management.course.CourseDAOImpl.create(CourseDAOImpl.java:14) [main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:28) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:54) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:16) [main/:?]
+2020-03-18 14:44:45 DEBUG MainController:48 - doCommand: input=create_course|JAVA
+2020-03-18 14:44:45 DEBUG CourseDAOImpl:36 - create: course.title=JAVA
+2020-03-18 14:44:45 ERROR CourseDAOImpl:44 - create: course.title=JAVA
+org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "course_title_key"
+  Подробности: Key (title)=(JAVA) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2440) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2183) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:308) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:441) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:365) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:143) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.execute(PgPreparedStatement.java:132) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44) ~[HikariCP-3.4.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.course.CourseDAOImpl.create(CourseDAOImpl.java:42) [main/:?]
+	at com.courses.management.course.CourseDAOImpl.create(CourseDAOImpl.java:15) [main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:27) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:54) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:16) [main/:?]
+2020-03-18 14:46:31 DEBUG MainController:48 - doCommand: input=create_course|JAVA
+2020-03-18 14:46:31 DEBUG CourseDAOImpl:36 - create: course.title=JAVA
+2020-03-18 14:46:31 ERROR CourseDAOImpl:44 - create: course.title=JAVA
+org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "course_title_key"
+  Подробности: Key (title)=(JAVA) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2440) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2183) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:308) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:441) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:365) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:143) ~[postgresql-42.2.5.jar:42.2.5]
+	at org.postgresql.jdbc.PgPreparedStatement.execute(PgPreparedStatement.java:132) ~[postgresql-42.2.5.jar:42.2.5]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44) ~[HikariCP-3.4.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java) ~[HikariCP-3.4.1.jar:?]
+	at com.courses.management.course.CourseDAOImpl.create(CourseDAOImpl.java:42) [main/:?]
+	at com.courses.management.course.CourseDAOImpl.create(CourseDAOImpl.java:15) [main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:27) [main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:54) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:16) [main/:?]
+2020-03-18 14:46:31 WARN  MainController:59 - doCommand. WARN ERROR: duplicate key value violates unique constraint "course_title_key"
+  Подробности: Key (title)=(JAVA) already exists.
+java.lang.IllegalArgumentException: ERROR: duplicate key value violates unique constraint "course_title_key"
+  Подробности: Key (title)=(JAVA) already exists.
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:30) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:54) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:16) [main/:?]
+2020-03-18 14:57:06 DEBUG MainController:48 - doCommand: input=help
+2020-03-18 14:57:38 DEBUG MainController:48 - doCommand: input=create_user|Iryna|Mivina|irM@pxl.int
+2020-03-18 14:57:38 WARN  Users:29 - validateEmail: email irM@pxl.int is incorrect
+2020-03-18 14:57:38 WARN  MainController:59 - doCommand. WARN Wrong email address irM@pxl.int
+java.lang.IllegalArgumentException: Wrong email address irM@pxl.int
+	at com.courses.management.user.Users.validateEmail(Users.java:30) ~[main/:?]
+	at com.courses.management.user.Users.mapUser(Users.java:40) ~[main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:26) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:54) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:16) [main/:?]
+2020-03-18 14:58:02 DEBUG MainController:48 - doCommand: input=create_user|Iryna|Mivina|irM@pxl.com
+2020-03-18 14:58:02 WARN  Users:29 - validateEmail: email irM@pxl.com is incorrect
+2020-03-18 14:58:02 WARN  MainController:59 - doCommand. WARN Wrong email address irM@pxl.com
+java.lang.IllegalArgumentException: Wrong email address irM@pxl.com
+	at com.courses.management.user.Users.validateEmail(Users.java:30) ~[main/:?]
+	at com.courses.management.user.Users.mapUser(Users.java:40) ~[main/:?]
+	at com.courses.management.user.CreateUser.process(CreateUser.java:26) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:54) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:16) [main/:?]
+2020-03-18 14:59:36 DEBUG MainController:48 - doCommand: input=create_user|Iryna|Mivina|iryna.mivina@pxl.int
+2020-03-18 14:59:36 DEBUG UserDAOImpl:31 - create: user: User Name: Iryna; Last Name: Mivina; Email: iryna.mivina@pxl.int; Role: NEWCOMER; Status: NOT_ACTIVE; Course: 

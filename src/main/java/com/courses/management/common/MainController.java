@@ -2,15 +2,15 @@ package com.courses.management.common;
 
 import com.courses.management.common.commands.Exit;
 import com.courses.management.common.commands.Help;
+
 import com.courses.management.common.commands.utils.InputString;
 import com.courses.management.course.*;
 import com.courses.management.user.CreateUser;
-import com.courses.management.user.CreateUserWithCourse;
-import com.courses.management.user.UpdateUser;
-import com.courses.management.user.UpdateUserFirstName;
+import com.courses.management.user.UserDAOImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.sql.DataSource;
 import java.util.Arrays;
 import java.util.List;
 
@@ -19,25 +19,19 @@ public class MainController {
     private View view;
     private List<Command> commands;
 
-    public MainController(View view) {
-        LOG.trace("Entering application.");
+    public MainController(View view, DataSource dataSource) {
         this.view = view;
         this.commands = Arrays.asList(
-                new CreateCourse(view),
+                new CreateCourse(view, new CourseDAOImpl(dataSource)),
                 new Help(view),
-                new Exit(view),
-                new FindCourseByTitle(view),
-                new FindCourseByID(view),
-                new ShowCoursesByStatus(view),
-                new DeleteCourse(view),
-                new ShowCourses(view),
-                new ShowCoursesByStatus(view),
-                new CreateUser(view),
-                new CreateUserWithCourse(view),
-                new UpdateUser(view),
-                new UpdateUserFirstName(view),
-                new UpdateCourseTitle(view),
-                new UpdateCourseStatus(view)
+               new FindCourseByID(view, new CourseDAOImpl(dataSource)),
+                new FindCourseByTitle(view, new CourseDAOImpl(dataSource)),
+                new UpdateCourseStatus(view, new CourseDAOImpl(dataSource)),
+                new UpdateCourseTitle(view, new CourseDAOImpl(dataSource)),
+                new ShowCourses(view, new CourseDAOImpl(dataSource)),
+                new DeleteCourse(view, new CourseDAOImpl(dataSource)),
+                new CreateUser(view, new UserDAOImpl(dataSource)),
+                new Exit(view)
         );
     }
 
@@ -56,7 +50,9 @@ public class MainController {
         for (Command command : commands) {
             try {
                 if (command.canProcess(entry)) {
+                    entry.validateParameters(command.command());
                     command.process(entry);
+                    System.out.println(entry);
                     break;
                 }
             } catch (Exception e) {

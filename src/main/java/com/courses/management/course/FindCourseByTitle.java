@@ -1,29 +1,29 @@
 package com.courses.management.course;
 
 import com.courses.management.common.Command;
-import com.courses.management.common.InputValueValidator;
 import com.courses.management.common.View;
+import com.courses.management.common.commands.Commands;
 import com.courses.management.common.commands.utils.InputString;
+
+import javax.sql.DataSource;
 
 public class FindCourseByTitle implements Command {
 
     private final View view;
     private CourseDAO courseDAO;
 
-    public FindCourseByTitle(View view) {
+    public FindCourseByTitle(View view, CourseDAO dao) {
         this.view = view;
-        courseDAO = new CourseDAOImpl();
+        courseDAO = dao;
     }
 
     @Override
     public String command() {
-        return "find_course|title";
+        return Commands.FIND_COURSE;
     }
 
     @Override
     public void process(InputString input) {
-
-        input.validateParameters(command());
         String title = input.getParameters()[1];
         Course course = courseDAO.get(title);
         if (course ==null) {

@@ -3,6 +3,7 @@ package com.courses.management.course;
 
 import com.courses.management.common.Command;
 import com.courses.management.common.View;
+import com.courses.management.common.commands.Commands;
 import com.courses.management.common.commands.utils.InputString;
 
 import java.util.List;
@@ -12,19 +13,18 @@ public class ShowCoursesByStatus implements Command {
     private final View view;
     private CourseDAOImpl courseDAO;
 
-    public ShowCoursesByStatus(View view) {
+    public ShowCoursesByStatus(View view, CourseDAO dao) {
         this.view = view;
-        courseDAO = new CourseDAOImpl();
+        courseDAO = (CourseDAOImpl) dao;
     }
 
     @Override
     public String command() {
-        return "show_courses_by_status|status";
+        return Commands.SHOW_COURSES_BY_STATUS;
     }
 
     @Override
     public void process(InputString input) {
-        input.validateParameters(command());
         String newStatus = input.getParameters()[1];
         List<Course> courses = courseDAO.getAllByStatus(getCourseStatus(newStatus).getStatus());
         courses.forEach(course -> Courses.printCourse(view, course));

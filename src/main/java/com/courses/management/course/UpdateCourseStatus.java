@@ -2,6 +2,7 @@ package com.courses.management.course;
 
 import com.courses.management.common.Command;
 import com.courses.management.common.View;
+import com.courses.management.common.commands.Commands;
 import com.courses.management.common.commands.utils.InputString;
 
 import java.util.Optional;
@@ -10,19 +11,18 @@ public class UpdateCourseStatus implements Command {
     private final View view;
     private CourseDAO courseDAO;
 
-    public UpdateCourseStatus(View view) {
+    public UpdateCourseStatus(View view, CourseDAO dao) {
         this.view = view;
-        courseDAO = new CourseDAOImpl();
+        courseDAO = dao;
     }
 
     @Override
     public String command() {
-        return "update_course_status|title|status";
+        return Commands.UPDATE_COURSE_STATUS;
     }
 
     @Override
     public void process(InputString input) {
-        input.validateParameters(command());
         String title = input.getParameters()[1];
         String newStatus = input.getParameters()[2];
         Course course = courseDAO.get(title);

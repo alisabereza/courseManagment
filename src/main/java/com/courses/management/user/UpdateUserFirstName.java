@@ -8,9 +8,9 @@ public class UpdateUserFirstName implements Command {
     private final View view;
     private UserDAOImpl userDAO;
 
-    public UpdateUserFirstName(View view) {
+    public UpdateUserFirstName(View view, UserDAO dao) {
         this.view = view;
-        userDAO = new UserDAOImpl();
+        userDAO = (UserDAOImpl) dao;
     }
 
 
@@ -21,9 +21,8 @@ public class UpdateUserFirstName implements Command {
 
     @Override
     public void process(InputString input) {
-        input.validateParameters(command());
         String email = validateEmail(input.getParameters()[1]);
-        User user = userDAO.findUserByEmail(email);
+        User user = userDAO.get(email);
         user.setFirstName(input.getParameters()[2]);
         userDAO.update(user);
         view.write(String.format("User first name updated: %s", user.toString()));

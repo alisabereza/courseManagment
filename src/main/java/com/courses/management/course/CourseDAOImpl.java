@@ -1,10 +1,10 @@
 package com.courses.management.course;
 
-import com.courses.management.common.DatabaseConnector;
-import com.zaxxer.hikari.HikariDataSource;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.postgresql.util.PSQLException;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,10 +24,15 @@ public class CourseDAOImpl implements  CourseDAO {
     private final static String ALL_BY_STATUS = "select id, title, status from course where status = ?;";
     private final static String DELETE = "delete from course where id = ?;";
 
-    private HikariDataSource dataSource = DatabaseConnector.getConnector();
+    private DataSource dataSource;
+
+    public CourseDAOImpl(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
     @Override
     public void create(Course course) {
+        System.out.println("Impl: " +course.getTitle());
         LOG.debug(String.format("create: course.title=%s", course.getTitle()));
 
         try (Connection connection = dataSource.getConnection();
@@ -37,7 +42,9 @@ public class CourseDAOImpl implements  CourseDAO {
             statement.execute();
         } catch (SQLException e) {
             LOG.error(String.format("create: course.title=%s", course.getTitle()), e);
+            throw new IllegalArgumentException(e.getMessage());
         }
+
     }
 
     @Override
@@ -93,8 +100,11 @@ public class CourseDAOImpl implements  CourseDAO {
 
     }
 
+
+
     @Override
     public Course get (String title) {
+        System.out.println(dataSource.toString());
         LOG.debug(String.format("get: course.title=%s", title));
 
         try (Connection connection = dataSource.getConnection();
@@ -109,6 +119,7 @@ public class CourseDAOImpl implements  CourseDAO {
                 course.setCourseStatus(CourseStatus.valueOf(resultSet.getString("status")));
 
             }
+
             return course;
         } catch (SQLException e) {
             LOG.error(String.format("get: course.title=%s", title), e);

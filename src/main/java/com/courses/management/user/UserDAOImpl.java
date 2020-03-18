@@ -1,12 +1,10 @@
 package com.courses.management.user;
 
-import com.courses.management.common.DataAccessObject;
-import com.courses.management.common.DatabaseConnector;
 import com.courses.management.course.CourseDAOImpl;
-import com.zaxxer.hikari.HikariDataSource;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,7 +12,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-public class UserDAOImpl implements DataAccessObject<User> {
+public class UserDAOImpl implements UserDAO {
     private final static Logger LOG = LogManager.getLogger(UserDAOImpl.class);
     private final static String INSERT = "INSERT INTO users (first_name, last_name, email, user_role, status, course_id) " +
             "VALUES(?,?,?,?,?,(select id from course where title = ?));";
@@ -22,7 +20,11 @@ public class UserDAOImpl implements DataAccessObject<User> {
     private final static String FIND_BY_EMAIL = "SELECT id, first_name, last_name, email, user_role, status, course_id from users where email = ?;";
     private final static String UPDATE = "UPDATE users set first_name=?, last_name=?, email=?, user_role=?, status=?, course_id=(select id from course where title = ?)  where id = ?;";
 
-    private HikariDataSource dataSource = DatabaseConnector.getConnector();
+    private DataSource dataSource;
+
+    public UserDAOImpl(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
     @Override
     public void create(User user) {
@@ -99,7 +101,12 @@ public class UserDAOImpl implements DataAccessObject<User> {
         return emailExists;
     }
 
-    public  User findUserByEmail (String email) {
+    public DataSource getDataSource() {
+        return dataSource;
+    }
+
+    @Override
+    public  User get (String email) {
 
 
         LOG.debug(String.format("find user by email: %s", email));
@@ -123,10 +130,10 @@ public class UserDAOImpl implements DataAccessObject<User> {
                 user.setUserRole(UserRole.valueOf(resultSet.getString("user_role")));
 
               if (resultSet.getInt("course_id")==0) {
-                    user.setCourse(new CourseDAOImpl().get(resultSet.getInt("course_id")));
+                    user.setCourse(new CourseDAOImpl(dataSource).get(resultSet.getInt("course_id")));
                     System.out.println("Course is empty");
                 }
-              else {user.setCourse(new CourseDAOImpl().get(resultSet.getInt("course_id")));
+              else {user.setCourse(new CourseDAOImpl(dataSource).get(resultSet.getInt("course_id")));
                   System.out.println("Course set: " + user.getCourse().getTitle());}
 
 

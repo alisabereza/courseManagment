@@ -13,7 +13,7 @@ public class Exit implements Command {
 
     @Override
     public String command() {
-        return "exit";
+        return Commands.EXIT;
     }
 
     @Override

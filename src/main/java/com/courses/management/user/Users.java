@@ -2,32 +2,41 @@ package com.courses.management.user;
 
 import com.courses.management.common.View;
 import com.courses.management.common.commands.utils.InputString;
-import com.courses.management.course.Course;
-import com.courses.management.course.CourseDAO;
-import com.courses.management.course.CourseDAOImpl;
-import com.courses.management.course.CourseStatus;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Users {
+    private static final Logger LOG = LogManager.getLogger(Users.class);
+
+    private static final String EMAIL_REGEXP = "^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(?:\\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@(?:[a-z0-9](" +
+            "[-a-z0-9]{0,61}[a-z0-9])?\\.)*(?:aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|" +
+            "net|org|pro|tel|travel|[a-z][a-z])$";
+    private static final Pattern EMAIL_PATTERN = Pattern.compile(EMAIL_REGEXP);
+    private static final int FIRST_NAME_INDEX = 1;
+    private static final int LAST_NAME_INDEX = 2;
+    private static final int EMAIL_INDEX = 3;
+
+    public static void validateEmail(String email) {
+        Matcher matcher = EMAIL_PATTERN.matcher(email);
+        if (!matcher.matches()) {
+            LOG.warn(String.format("validateEmail: email %s is incorrect", email));
+            throw new IllegalArgumentException(String.format("Wrong email address %s", email));
+        }
+    }
+
     public static User mapUser(InputString input) {
+        String[] parameters = input.getParameters();
         User user = new User();
-        String[] userParameters = input.getParameters();
-        user.setFirstName(userParameters[1]);
-        user.setLastName(userParameters[2]);
-        user.setEmail(validateEmail(userParameters[3]));
+        user.setFirstName(parameters[FIRST_NAME_INDEX]);
+        user.setLastName(parameters[LAST_NAME_INDEX]);
+        String email = parameters[EMAIL_INDEX];
+        validateEmail(email);
+        user.setEmail(email);
+        user.setStatus(UserStatus.NOT_ACTIVE);
         user.setUserRole(UserRole.NEWCOMER);
-        user.setStatus(UserStatus.ACTIVE);
-        if (userParameters.length == 5) {
-            CourseDAO courseDAO = new CourseDAOImpl();
-            try {
-                Course course = courseDAO.get(userParameters[4]);
-                if (course.getCourseStatus() != CourseStatus.DELETED) {
-                    user.setCourse(course);
-                }
-            }
-            catch (NullPointerException e) {
-                System.out.println(String.format("Course with the name %s was not found", userParameters[3]) + e);
-            }
-            }
         return user;
     }
 
@@ -42,13 +51,5 @@ public class Users {
 
     }
 
-    public static String validateEmail(String email) {
-        UserDAOImpl userDAO = new UserDAOImpl();
-        boolean emailExists = userDAO.checkEmail(email);
-        if (emailExists) {
-            throw new IllegalArgumentException(String.format("The email %s already exists in Database", email));
-        }
-        return email;
-    }
 }
 

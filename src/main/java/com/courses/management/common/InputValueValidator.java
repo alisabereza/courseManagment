@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 
 public class InputValueValidator {
-    public static String value = "";
+    /*public static String value = "";
 
     public static String validateString(View view) {
         value = view.read();
@@ -117,5 +117,5 @@ public class InputValueValidator {
             }
         }
         return course;
-    }
+    }*/
 }
