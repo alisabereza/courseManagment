@@ -1039,3 +1039,54 @@ java.lang.IllegalArgumentException: Wrong email address irM@pxl.com
 	at com.courses.management.Main.main(Main.java:16) [main/:?]
 2020-03-18 14:59:36 DEBUG MainController:48 - doCommand: input=create_user|Iryna|Mivina|iryna.mivina@pxl.int
 2020-03-18 14:59:36 DEBUG UserDAOImpl:31 - create: user: User Name: Iryna; Last Name: Mivina; Email: iryna.mivina@pxl.int; Role: NEWCOMER; Status: NOT_ACTIVE; Course: 
+2020-03-18 15:27:00 WARN  Users:25 - validateEmail: email oleksandr.yanov@email is incorrect
+2020-03-18 15:44:09 WARN  Users:25 - validateEmail: email oleksandr.yanov@email is incorrect
+2020-03-18 16:00:09 DEBUG MainController:48 - doCommand: input=create_course|JAVA
+2020-03-18 16:00:09 DEBUG CourseDAOImpl:108 - get: course.title=JAVA
+2020-03-18 16:00:10 WARN  MainController:59 - doCommand. WARN Course with title JAVA already exists
+java.lang.IllegalArgumentException: Course with title JAVA already exists
+	at com.courses.management.course.CreateCourse.validateTitle(CreateCourse.java:38) ~[main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:26) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:54) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:16) [main/:?]
+2020-03-18 16:00:31 DEBUG MainController:48 - doCommand: input=create_course|PL_SQL
+2020-03-18 16:00:31 DEBUG CourseDAOImpl:108 - get: course.title=PL_SQL
+2020-03-18 16:00:31 WARN  MainController:59 - doCommand. WARN Course with title PL_SQL already exists
+java.lang.IllegalArgumentException: Course with title PL_SQL already exists
+	at com.courses.management.course.CreateCourse.validateTitle(CreateCourse.java:38) ~[main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:26) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:54) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:16) [main/:?]
+2020-03-18 16:03:39 DEBUG MainController:48 - doCommand: input=create_course|PL_SQL
+2020-03-18 16:03:39 DEBUG CourseDAOImpl:107 - get: course.title=PL_SQL
+2020-03-18 16:03:39 WARN  MainController:59 - doCommand. WARN Course with title PL_SQL already exists
+java.lang.IllegalArgumentException: Course with title PL_SQL already exists
+	at com.courses.management.course.CreateCourse.validateTitle(CreateCourse.java:38) ~[main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:26) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:54) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:16) [main/:?]
+2020-03-18 16:09:58 DEBUG MainController:48 - doCommand: input=create_course|PL_SQL
+2020-03-18 16:09:58 DEBUG CourseDAOImpl:107 - get: course.title=PL_SQL
+2020-03-18 16:09:58 WARN  MainController:59 - doCommand. WARN Course with title PL_SQL already exists
+java.lang.IllegalArgumentException: Course with title PL_SQL already exists
+	at com.courses.management.course.CreateCourse.validateTitle(CreateCourse.java:37) ~[main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:26) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:54) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:16) [main/:?]
+2020-03-18 16:10:17 DEBUG MainController:48 - doCommand: input=create_course|PL_SQL
+2020-03-18 16:10:17 DEBUG CourseDAOImpl:107 - get: course.title=PL_SQL
+2020-03-18 16:10:17 DEBUG CourseDAOImpl:35 - create: course.title=PL_SQL
+2020-03-18 16:10:55 DEBUG MainController:48 - doCommand: input=create_course|PL_SQL
+2020-03-18 16:10:55 DEBUG CourseDAOImpl:107 - get: course.title=PL_SQL
+2020-03-18 16:10:55 WARN  MainController:59 - doCommand. WARN Course with title PL_SQL already exists
+java.lang.IllegalArgumentException: Course with title PL_SQL already exists
+	at com.courses.management.course.CreateCourse.validateTitle(CreateCourse.java:37) ~[main/:?]
+	at com.courses.management.course.CreateCourse.process(CreateCourse.java:26) ~[main/:?]
+	at com.courses.management.common.MainController.doCommand(MainController.java:54) [main/:?]
+	at com.courses.management.common.MainController.read(MainController.java:43) [main/:?]
+	at com.courses.management.Main.main(Main.java:16) [main/:?]
+2020-03-18 16:37:16 WARN  Users:25 - validateEmail: email oleksandr.yanov@email is incorrect

@@ -1,7 +1,7 @@
 package com.courses.management.user;
 
 import com.courses.management.common.*;
-import com.courses.management.common.commands.Commands;
+import com.courses.management.common.commands.utils.Commands;
 import com.courses.management.common.commands.utils.InputString;
 import com.courses.management.course.*;
 

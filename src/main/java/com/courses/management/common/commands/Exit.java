@@ -2,6 +2,7 @@ package com.courses.management.common.commands;
 
 import com.courses.management.common.Command;
 import com.courses.management.common.View;
+import com.courses.management.common.commands.utils.Commands;
 import com.courses.management.common.commands.utils.InputString;
 
 public class Exit implements Command {

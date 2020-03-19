@@ -5,6 +5,7 @@ import com.courses.management.course.Course;
 import com.courses.management.solution.Solution;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 public class User extends BaseEntity {
@@ -80,5 +81,20 @@ public class User extends BaseEntity {
     public String toString() {
         return "User Name: " + this.getFirstName() + "; Last Name: " + this.getLastName() +
                 "; Email: "+ this.getEmail() + "; Role: " + this.getUserRole() + "; Status: " + this.getStatus() + "; Course: " + ((this.getCourse()!=null)?this.getCourse().getTitle():"");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return firstName.equals(user.firstName) &&
+                lastName.equals(user.lastName) &&
+                email.equals(user.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, email);
     }
 }

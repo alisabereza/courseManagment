@@ -2,9 +2,9 @@ package com.courses.management.user;
 
 import com.courses.management.common.View;
 import com.courses.management.common.commands.utils.InputString;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -42,14 +42,11 @@ public class Users {
 
     public static void printUser(View view, User user) {
         view.write("User:");
-        view.write(String.format("\t Name = %s", user.getFirstName()));
-        view.write(String.format("\t Last Name = %s", user.getLastName()));
-        view.write(String.format("\t Email = %s", user.getEmail()));
-        view.write(String.format("\t Role = %s", user.getUserRole().getRole()));
-        view.write(String.format("\t Status = %s", user.getStatus().getStatus()));
-        view.write(String.format("\t Course = %s", (user.getCourse()!=null)?user.getCourse().getTitle():""));
-
+        view.write(String.format("\t first name = %s", user.getFirstName()));
+        view.write(String.format("\t last name = %s", user.getLastName()));
+        view.write(String.format("\t email = %s", user.getEmail()));
+        view.write(String.format("\t user role = %s", user.getUserRole().getRole()));
+        view.write(String.format("\t user status = %s", user.getStatus().getStatus()));
     }
-
 }
 

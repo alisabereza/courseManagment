@@ -1,5 +1,6 @@
 package com.courses.management.user;
 
+import com.courses.management.common.exceptions.SQLCourseException;
 import com.courses.management.course.CourseDAOImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -9,16 +10,29 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class UserDAOImpl implements UserDAO {
     private final static Logger LOG = LogManager.getLogger(UserDAOImpl.class);
+
+    private static final String FIND_USER_BY_ID = "SELECT id, first_name, last_name, email, user_role, status " +
+            "FROM users WHERE id=?;";
+
     private final static String INSERT = "INSERT INTO users (first_name, last_name, email, user_role, status, course_id) " +
             "VALUES(?,?,?,?,?,(select id from course where title = ?));";
+
     private final static String EMAIL = "select id from users where email = ?;";
-    private final static String FIND_BY_EMAIL = "SELECT id, first_name, last_name, email, user_role, status, course_id from users where email = ?;";
+
+    private final static String FIND_USER_BY_EMAIL = "SELECT id, first_name, last_name, email, user_role, status, course_id from users where email = ?;";
+
     private final static String UPDATE = "UPDATE users set first_name=?, last_name=?, email=?, user_role=?, status=?, course_id=(select id from course where title = ?)  where id = ?;";
+
+    private static final String DELETE = "DELETE FROM users WHERE id=?;";
+
+    private static final String FIND_ALL_USERS = "SELECT id, first_name, last_name, email, user_role, status " +
+            "FROM users;";
 
     private DataSource dataSource;
 
@@ -70,17 +84,79 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public void delete(int id) {
-
+        LOG.debug(String.format("delete: user.id=%s ", id));
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement(DELETE)) {
+            statement.setInt(1, id);
+            statement.execute();
+        } catch (SQLException e) {
+            LOG.error(String.format("delete: user.id=%s", id), e);
+            throw new SQLCourseException("Error occurred when removing user");
+        }
     }
 
     @Override
     public User get(int id) {
+        LOG.debug(String.format("get: user.id=%s ", id));
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement(FIND_USER_BY_ID)) {
+            statement.setInt(1, id);
+            return getUser(statement.executeQuery());
+        } catch (SQLException e) {
+            LOG.error(String.format("get: user.id=%s", id), e);
+            throw new SQLCourseException("Error occurred when retrieving user");
+        }
+    }
+
+    private User getUser(ResultSet rs) throws SQLException {
+        if (rs.next()) {
+            return mapUserFromRS(rs);
+        }
         return null;
+    }
+
+    private User mapUserFromRS(ResultSet rs) throws SQLException {
+        User user = new User();
+        user.setId(rs.getInt("id"));
+        user.setFirstName(rs.getString("first_name"));
+        user.setLastName(rs.getString("last_name"));
+        user.setEmail(rs.getString("email"));
+        user.setUserRole(UserRole.getUserRole(rs.getString("user_role")).get());
+        user.setStatus(UserStatus.getUserStatus(rs.getString("status")).get());
+        return user;
     }
 
     @Override
     public List<User> getAll() {
-        return null;
+        LOG.debug("getAll: ");
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement(FIND_ALL_USERS)) {
+            return getUserList(statement.executeQuery());
+        } catch (SQLException e) {
+            LOG.error("getAll: ", e);
+            throw new SQLCourseException("Error occurred when retrieving all user");
+        }
+    }
+
+    private List<User> getUserList(ResultSet rs) throws SQLException {
+        List<User> users = new ArrayList<>();
+        while (rs.next()) {
+            users.add(mapUserFromRS(rs));
+        }
+        return users;
+    }
+
+    @Override
+    public User get(String email) {
+        LOG.debug(String.format("get: user.email=%s ", email));
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement(FIND_USER_BY_EMAIL)) {
+            statement.setString(1, email);
+            return getUser(statement.executeQuery());
+        } catch (SQLException e) {
+            LOG.error(String.format("get: user.email=%s", email), e);
+            throw new SQLCourseException("Error occurred when retrieving user");
+        }
     }
 
     public  boolean checkEmail (String email) {
@@ -102,47 +178,6 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public DataSource getDataSource() {
-        return dataSource;
-    }
-
-    @Override
-    public  User get (String email) {
-
-
-        LOG.debug(String.format("find user by email: %s", email));
-        User user = new User();
-        try (Connection connection = dataSource.getConnection();
-             PreparedStatement statement = connection.prepareStatement(FIND_BY_EMAIL)) {
-            statement.setString(1, email);
-            ResultSet resultSet = statement.executeQuery();
-
-            while (resultSet.next()) {
-                user.setId(resultSet.getInt("id"));
-
-                user.setFirstName(resultSet.getString("first_name"));
-
-                user.setLastName(resultSet.getString("last_name"));
-
-                user.setEmail(resultSet.getString("email"));
-
-                user.setStatus(UserStatus.valueOf(resultSet.getString("status")));
-
-                user.setUserRole(UserRole.valueOf(resultSet.getString("user_role")));
-
-              if (resultSet.getInt("course_id")==0) {
-                    user.setCourse(new CourseDAOImpl(dataSource).get(resultSet.getInt("course_id")));
-                    System.out.println("Course is empty");
-                }
-              else {user.setCourse(new CourseDAOImpl(dataSource).get(resultSet.getInt("course_id")));
-                  System.out.println("Course set: " + user.getCourse().getTitle());}
-
-
-            }
-
-        } catch (SQLException e) {
-            LOG.error(String.format("find user by email email=%s", email), e);
-
-        }
-        return user;
+        return this.dataSource;
     }
 }

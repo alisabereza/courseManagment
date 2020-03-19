@@ -1,9 +1,8 @@
 package com.courses.management.user;
 
   import com.courses.management.common.Command;
-import com.courses.management.common.DataAccessObject;
-import com.courses.management.common.View;
-  import com.courses.management.common.commands.Commands;
+  import com.courses.management.common.View;
+  import com.courses.management.common.commands.utils.Commands;
   import com.courses.management.common.commands.utils.InputString;
 
     public class CreateUserWithCourse implements Command {
