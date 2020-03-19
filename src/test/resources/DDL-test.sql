@@ -1,8 +1,3 @@
-CREATE SCHEMA IF NOT EXISTS public;
---CREATING DATABASE
-CREATE DATABASE COURSE_MANAGEMENT WITH OWNER postgres;
-ALTER SCHEMA public OWNER TO postgres;
-
 --SCHEMA
 create table course
 (
@@ -25,11 +20,6 @@ create table users
     FOREIGN KEY (course_id)
         REFERENCES course (id)
 );
-alter table users
-    owner to postgres;
-
-alter table course
-    owner to postgres;
 
 create table home_work
 (
@@ -42,8 +32,6 @@ create table home_work
     FOREIGN KEY (course_id)
         REFERENCES course (id)
 );
-alter table home_work
-    owner to postgres;
 
 create table solution
 (
@@ -59,32 +47,23 @@ create table solution
     FOREIGN KEY (home_work_id)
         REFERENCES home_work (id)
 );
-alter table solution
-    owner to postgres;
 
-ALTER TABLE course
-    ALTER COLUMN title TYPE VARCHAR(50),
-    ALTER COLUMN status TYPE VARCHAR(50);
+ALTER TABLE course ALTER COLUMN title TYPE VARCHAR(50);
+ALTER TABLE course ALTER COLUMN status TYPE VARCHAR(50);
 
-ALTER TABLE users
-    ALTER COLUMN email TYPE VARCHAR(50),
-    ALTER COLUMN status TYPE VARCHAR(50),
-    ALTER COLUMN first_name TYPE VARCHAR(50),
-    ALTER COLUMN last_name TYPE VARCHAR(50);
+ALTER TABLE users ALTER COLUMN email TYPE VARCHAR(50);
+ALTER TABLE users ALTER COLUMN status TYPE VARCHAR(50);
+ALTER TABLE users ALTER COLUMN first_name TYPE VARCHAR(50);
+ALTER TABLE users ALTER COLUMN last_name TYPE VARCHAR(50);
 
+ALTER TABLE solution ALTER COLUMN status TYPE VARCHAR(50);
 
-ALTER TABLE solution
-    ALTER COLUMN status TYPE VARCHAR(50);
+ALTER TABLE home_work ALTER COLUMN title TYPE VARCHAR(50);
+ALTER TABLE home_work ALTER COLUMN file_path TYPE VARCHAR(100);
 
-ALTER TABLE home_work
-    ALTER COLUMN title TYPE VARCHAR(50),
-    ALTER COLUMN file_path TYPE VARCHAR(100);
+ALTER TABLE course ADD UNIQUE (title);
 
-ALTER TABLE course
-    ADD UNIQUE (title);
-
-ALTER TABLE users
-    ADD UNIQUE (email);
+ALTER TABLE users ADD UNIQUE (email);
 
 ALTER TABLE users ALTER COLUMN first_name SET NOT NULL;
 ALTER TABLE users ALTER COLUMN last_name SET NOT NULL;
