@@ -32,8 +32,7 @@ public class CourseDAOImpl implements  CourseDAO {
 
     @Override
     public void create(Course course) {
-        System.out.println("Impl: " +course.getTitle());
-        LOG.debug(String.format("create: course.title=%s", course.getTitle()));
+               LOG.debug(String.format("create: course.title=%s", course.getTitle()));
 
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(INSERT)) {

@@ -5,17 +5,9 @@ import com.courses.management.homework.Homework;
 import com.courses.management.user.User;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Course extends BaseEntity {
-    private int id;
-
-    @Override
-    public String toString() {
-        return  "Course ID: " + this.getId() +
-                "   Course Title: " + this.getTitle() +
-                "   Course Status: " + this.getCourseStatus();
-    }
-
     private String title;
     private List<User> users;
     private CourseStatus courseStatus;
@@ -63,5 +55,18 @@ public class Course extends BaseEntity {
 
     public void setHomework(List<Homework> homework) {
         this.homework = homework;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Course course = (Course) o;
+        return title.equals(course.title);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title);
     }
 }
